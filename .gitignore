@@ -1,0 +1,9 @@
+/venv/
+/.idea/
+*.sqlite3
+__pycache__/
+
+# Only for Development only
+ **/migrations/**
+ !**/migrations
+ !**/migrations/__init__.py
