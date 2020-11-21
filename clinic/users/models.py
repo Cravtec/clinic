@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
-        extra_fields.setdefault('is_active', False)
+        extra_fields.setdefault('is_active', True)
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password=None, **extra_fields):
@@ -72,7 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=255,
         unique=True,
     )
-    is_active = models.BooleanField(default=False)  # can user log in?
+    is_active = models.BooleanField(default=True)  # can user log in?
     is_staff = models.BooleanField(default=False)  # user is an admin? ; non super-user
     is_superuser = models.BooleanField(default=False)  # user is superuser?
     date_joined = models.DateTimeField(default=timezone.now, verbose_name='date joined')
@@ -132,7 +132,7 @@ class Profile(models.Model):
     mid_name = models.CharField(max_length=30, null=True, blank=True)
     last_name = models.CharField(max_length=30, null=True, blank=True)
     sex = models.PositiveSmallIntegerField(choices=SEX_CHOICES, default=4, blank=True, null=True)
-    birth_date = models.DateField(null=True,  blank=True)
+    birth_date = models.DateField(null=True, blank=True)
     nationality = models.CharField(max_length=30, null=True, blank=True)
     phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
     pesel = models.CharField(max_length=15, unique=True, null=True, blank=True)
