@@ -13,8 +13,9 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
 
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
-
+    path('', include('clinic_main.urls', namespace='clinic_main')),
+    #path('', index, name='index'),
+    path('dashboard/', include('dashboard.urls', namespace='dashboard')),
     path('password_reset/',
          auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'),
          name='password_reset'

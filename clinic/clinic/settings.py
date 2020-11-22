@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'clinic_main',
+    'dashboard',
     'bootstrap4',
     'crispy_forms',
 ]
@@ -127,9 +129,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'dashboard:dashboard'
 LOGIN_URL = 'users:login'
-LOGOUT_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'clinic_main:index'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
