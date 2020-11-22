@@ -1,0 +1,21 @@
+.main-header .logo-header .logo {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+}
+.sidebar .sidebar-wrapper{
+    /*padding-top: 0px !important;*/
+}
+
+.main-panel .content{
+    /*padding: 10px !important;*/
+}
+
+.appointments-table{
+    margin-top: 24px !important;
+}
+
+.appointments-table .col-md-12{
+    padding-left: 0;
+    padding-right: 0;
+}

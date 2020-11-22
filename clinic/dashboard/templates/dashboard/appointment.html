@@ -1,0 +1,67 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+<div class="page-inner">
+    <h1>Appointments</h1>
+    <div class="appointments-table">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="add-row" class="display table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Doctor</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th style="width: 10%">Action</th>
+                                </tr>
+                            </thead>
+                            {# <tfoot>#}
+                                {# <tr>#}
+                                    {# <th>Doctor</th>#}
+                                    {# <th>Date</th>#}
+                                    {# <th>Time</th>#}
+                                    {# <th>Action</th>#}
+                                    {# </tr>#}
+                                {# </tfoot>#}
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>20-11-2020</td>
+                                    <td>14 : 15</td>
+                                    <td>
+                                        <div class="form-button-action">
+                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>10-11-2020</td>
+                                    <td>16 : 15</td>
+                                    <td>
+                                        <div class="form-button-action">
+                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

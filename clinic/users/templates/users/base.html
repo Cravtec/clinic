@@ -1,0 +1,28 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}" {% endif %}>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django Clinic</title>
+    {% block styles %}{% bootstrap_css %}{% endblock %}
+    {% block scripts %}{% bootstrap_javascript jquery='full' %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/styles.css' %}">
+    <script src="{% static 'users/fontawesome/js/all.js' %}"></script>
+    <link rel="icon" href="{% static 'users/img/find-clinic.png' %}">
+</head>
+<body>
+
+    {% include 'users/navbar.html' %}
+
+<div class="container">
+    <div class="jumbotron">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+
+</body>
+</html>
