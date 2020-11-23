@@ -19,3 +19,27 @@
     padding-left: 0;
     padding-right: 0;
 }
+
+.selectdatewidget {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+select[name$="_day"].selectdatewidget {
+    width: 25%;
+}
+select[name$="_month"].selectdatewidget {
+    width: 36%;
+}
+select[name$="_year"].selectdatewidget {
+    width: 36%;
+}
+
+.form-control {
+    padding: 0rem 1rem;
+}
+
+.form-group, .form-check {
+    margin-bottom: 0;
+    padding: 10px 3px;
+}

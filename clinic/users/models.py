@@ -112,7 +112,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.is_active
 
 
-SEX_CHOICES = Choices(
+GENDER_CHOICES = Choices(
     (1, 'male', 'male'),
     (2, 'female', 'female'),
     (3, 'unspecified', 'unspecified'),
@@ -131,7 +131,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30, null=True, blank=True)
     mid_name = models.CharField(max_length=30, null=True, blank=True)
     last_name = models.CharField(max_length=30, null=True, blank=True)
-    sex = models.PositiveSmallIntegerField(choices=SEX_CHOICES, default=4, blank=True, null=True)
+    gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, default=4, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     nationality = models.CharField(max_length=30, null=True, blank=True)
     phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)

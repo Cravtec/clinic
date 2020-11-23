@@ -1,21 +1,19 @@
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from users import views as users_view
 
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index
 
 urlpatterns = [
     # includes
+    path('', include('clinic_main.urls', namespace='clinic_main')),
     path('users/', include('users.urls', namespace='users')),
+    path('dashboard/', include('dashboard.urls', namespace='dashboard')),
 
     path('admin/', admin.site.urls),
-    path('', include('clinic_main.urls', namespace='clinic_main')),
-    #path('', index, name='index'),
-    path('dashboard/', include('dashboard.urls', namespace='dashboard')),
+
     path('password_reset/',
          auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'),
          name='password_reset'

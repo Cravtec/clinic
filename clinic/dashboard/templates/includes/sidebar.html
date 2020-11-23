@@ -5,12 +5,16 @@
     <div class="sidebar-content">
         <div class="user">
             <div class="avatar-sm float-left mr-2">
-                <img src="{% static 'dashboard/img/profile.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                <img src="{{ user.profile.image.url }}" alt="..." class="avatar-img rounded-circle">
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                     <span>
-                        Sebastian Janas
+                        {% if user.profile.first_name and user.profile.last_name %}
+                        {{ user.profile.first_name }} {{ user.profile.last_name }}
+                        {% else %}
+                        {{ user.email }}
+                        {% endif %}
                         <span class="caret"></span>
                     </span>
                 </a>

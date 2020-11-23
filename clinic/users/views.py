@@ -1,28 +1,19 @@
-from django.contrib import messages
-from django.contrib.auth import authenticate, login as auth_login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
-
-from django.shortcuts import render, redirect
-
-from django.urls import reverse
-
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
-
-from .models import User, Profile, Address
-from .forms import RegistrationForm, AddressUpdateForm, ProfileUpdateForm, UserCreationForm
+from django.contrib.auth import get_user_model
+from django.contrib.auth.tokens import default_token_generator
 
 # for email account confirmation imports
 from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes
-from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from django.contrib.auth import get_user_model
+from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.urls import reverse
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.views.generic.edit import CreateView, UpdateView
+
+from .forms import RegistrationForm, UserCreationForm
+from .models import User
 
 UserModel = get_user_model()
 
@@ -97,23 +88,3 @@ def activate(request, uidb64, token):
         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
-
-
-@login_required
-def profile(request):
-    if request.method == 'POST':
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        a_form = AddressUpdateForm(request.POST, instance=request.user.address)
-        if p_form.is_valid() and a_form.is_valid():
-            p_form.save()
-            a_form.save()
-            messages.success(request, f'Your profile has been updated!')
-            return redirect('users:profile')
-    else:
-        p_form = ProfileUpdateForm(instance=request.user.profile)
-        a_form = AddressUpdateForm(instance=request.user.address)
-    context = {
-        'p_form': p_form,
-        'a_form': a_form
-    }
-    return render(request, 'users/profile.html', context)

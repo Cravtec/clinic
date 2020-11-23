@@ -1,6 +1,10 @@
 from django import forms
-from django.contrib.auth.models import Group
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+
+# from crispy_forms.helper import FormHelper
+# from crispy_forms.layout import Layout, Submit, Row, Column, MultiWidgetField
+
+from datetime import datetime
 
 from .models import User, Profile, Address
 
@@ -43,7 +47,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email',)  # 'is_staff', 'is_superuser', 'is_active'
+        fields = ('email',)
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -79,12 +83,38 @@ class UserChangeForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['first_name', 'mid_name', 'last_name', 'birth_date', 'nationality', 'phone_number',
-                  'pesel', 'image'
-                  ]
+        fields = ['first_name', 'mid_name', 'last_name', 'gender', 'birth_date',
+                  'nationality', 'phone_number', 'pesel', 'image']
+
+    birth_date = forms.DateField(
+        required=False,
+        widget=forms.SelectDateWidget(
+            empty_label=("Year", "Month", "Day"),
+            years=range(datetime.now().year - 120, datetime.now().year + 1)
+
+        ))
 
 
 class AddressUpdateForm(forms.ModelForm):
     class Meta:
         model = Address
         fields = ['country', 'home_number', 'street', 'address', 'town', 'state', 'postal_code']
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.helper = FormHelper()
+    #     self.helper.layout = Layout(
+    #         'country',
+    #         Row(
+    #             Column('home_number'),
+    #             Column('street'),
+    #             # css_class='form-row'
+    #         ),
+    #         'address',
+    #         Row(
+    #             Column('town'),
+    #             Column('state'),
+    #             Column('postal_code'),
+    #             # css_class='form-row'
+    #         ),
+    #     )
