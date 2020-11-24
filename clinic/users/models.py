@@ -166,3 +166,25 @@ class Address(models.Model):
 
     def __str__(self):
         return f'{self.street} {self.home_number} {self.country} {self.postal_code}'
+
+
+class Doctor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30, null=True, blank=True)
+    mid_name = models.CharField(max_length=30, null=True, blank=True)
+    last_name = models.CharField(max_length=30, null=True, blank=True)
+    gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, default=4, blank=True, null=True)
+    birth_date = models.DateField(null=True, blank=True)
+    phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
+    image = models.ImageField(default='default.jpg', upload_to='profile', null=True, blank=True)
+    user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=1, blank=True, null=True)
+
+    def __str__(self):
+        if self.first_name and self.last_name:
+            return f'{self.first_name} {self.last_name}: {self.user.email}'
+        return self.user.email
+
+
+class Specialization(models.Model):
+    specialization = models.CharField(max_length=30, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)

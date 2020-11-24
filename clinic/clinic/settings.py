@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'clinic_main.apps.ClinicMainConfig',
     'dashboard.apps.DashboardConfig',
+    'appointment.apps.AppointmentConfig',
     'bootstrap4',
     'crispy_forms',
 ]

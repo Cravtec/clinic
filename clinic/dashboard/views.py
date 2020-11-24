@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from users import forms as users_forms
 
 
+
+
 def dashboard(request):
     return render(request, 'dashboard/dash.html', {})
 
@@ -44,3 +46,8 @@ def appointment(request):
 
 def calendar(request):
     return render(request, 'dashboard/calendar.html', {})
+
+# def medical_history(request):
+#     data = MedicalHistory.objects.all()
+#     context = {'data': data}
+#     return render(request, 'dashboard/medical_history.html', context)
