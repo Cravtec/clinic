@@ -23,12 +23,12 @@
                     <ul class="nav">
                         <li>
                             <a href="{% url 'dashboard:profile' %}">
-                                <span class="link-collapse">My Profile</span>
+                                <span class="link-collapse">Edit Profile</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'dashboard:profile_edit' %}">
-                                <span class="link-collapse">Edit Profile</span>
+                            <a href="{% url 'password_change' %}">
+                                <span class="link-collapse">Change password</span>
                             </a>
                         </li>
                     </ul>
@@ -36,32 +36,37 @@
             </div>
         </div>
         <ul class="nav">
-            <li class="nav-item">
+            {% url 'dashboard:dashboard' as dashboard_url %}
+            <li class="nav-item {% if request.get_full_path == dashboard_url %}active{% endif %}">
                 <a href="{% url 'dashboard:dashboard' %}">
                     <i class="fa fa-home"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item">
+            {% url 'dashboard:doctor' as doctor_url %}
+            <li class="nav-item {% if request.get_full_path == doctor_url %}active{% endif %}">
                 <a href="{% url 'dashboard:doctor' %}">
                     <i class="fa fa-user-md"></i>
                     <p>Doctors</p>
                 </a>
             </li>
-            <li class="nav-item">
+            {% url 'dashboard:appointment' as appointment_url %}
+            <li class="nav-item {% if request.get_full_path == appointment_url %}active{% endif %}">
                 <a href="{% url 'dashboard:appointment' %}">
                     <i class="fa fa-table"></i>
                     <p>Appointments</p>
                 </a>
             </li>
-            <li class="nav-item">
+            {% url 'dashboard:calendar' as calendar_url %}
+            <li class="nav-item {% if request.get_full_path == calendar_url %}active{% endif %}">
                 <a href="{% url 'dashboard:calendar' %}">
                     <i class="fa fa-calendar"></i>
                     <p>Calendar</p>
                 </a>
             </li>
-            <li class="nav-item">
-                    <a href="">
+            {% url 'dashboard:medical_history' as medical_history_url %}
+            <li class="nav-item {% if request.get_full_path == medical_history_url %}active{% endif %}">
+                    <a href="{% url 'dashboard:medical_history' %}">
                         <i class="fa fa-calendar"></i>
                         <p>Medical History</p>
                     </a>

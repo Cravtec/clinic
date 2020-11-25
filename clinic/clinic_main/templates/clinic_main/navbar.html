@@ -25,13 +25,43 @@
         <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li><a href="{% url 'clinic_main:index' %}">Home</a></li>
-                <li><a href="{% url 'clinic_main:about' %}">About</a></li>
+                {% url 'clinic_main:index' as index_url %}
+                <li class="{% if request.get_full_path == index_url %}active{% endif %}">
+                    <a href="{% url 'clinic_main:index' %}">
+                    Home
+                    </a>
+                </li>
+                {% url 'clinic_main:about' as about_url %}
+                <li class="{% if request.get_full_path == about_url %}active{% endif %}">
+                    <a href="{% url 'clinic_main:about' %}">
+                        About
+                    </a>
+                </li>
                 {# <li><a href="#services">Services</a></li>#}
-                <li><a href="{% url 'clinic_main:departments' %}">Departments</a></li>
-                <li><a href="{% url 'clinic_main:FAQ' %}">FAQ</a></li>
-                <li><a href="{% url 'clinic_main:fees' %}">Fees</a></li>
-                <li><a href="{% url 'clinic_main:contact' %}">Contact</a></li>
+                {% url 'clinic_main:departments' as departments_url %}
+                <li class="{% if request.get_full_path == departments_url %}active{% endif %}">
+                    <a href="{% url 'clinic_main:departments' %}">
+                        Departments
+                    </a>
+                </li>
+                {% url 'clinic_main:FAQ' as FAQ_url %}
+                <li class="{% if request.get_full_path == FAQ_url %}active{% endif %}">
+                    <a href="{% url 'clinic_main:FAQ' %}">
+                        FAQ
+                    </a>
+                </li>
+                {% url 'clinic_main:fees' as fees_url %}
+                <li class="{% if request.get_full_path == fees_url %}active{% endif %}">
+                    <a href="{% url 'clinic_main:fees' %}">
+                        Fees
+                    </a>
+                </li>
+                {% url 'clinic_main:contact' as contact_url %}
+                <li class="{% if request.get_full_path == contact_url %}active{% endif %}">
+                    <a href="{% url 'clinic_main:contact' %}">
+                        Contact
+                    </a>
+                </li>
                 {% if user.is_authenticated %}
                 <li class="drop-down"><a href="">Sign out</a>
                     <ul>

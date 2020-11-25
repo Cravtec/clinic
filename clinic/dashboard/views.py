@@ -6,8 +6,7 @@ from django.shortcuts import render, redirect
 from users import forms as users_forms
 
 
-
-
+@login_required
 def dashboard(request):
     return render(request, 'dashboard/dash.html', {})
 
@@ -32,22 +31,26 @@ def profile(request):
     return render(request, 'dashboard/profile.html', context)
 
 
+@login_required
 def profile_edit(request):
     return render(request, 'dashboard/profile_edit.html', {})
 
 
+@login_required
 def doctor(request):
     return render(request, 'dashboard/doctor.html', {})
 
 
+@login_required
 def appointment(request):
     return render(request, 'dashboard/appointment.html', {})
 
 
+@login_required
 def calendar(request):
     return render(request, 'dashboard/calendar.html', {})
 
-# def medical_history(request):
-#     data = MedicalHistory.objects.all()
-#     context = {'data': data}
-#     return render(request, 'dashboard/medical_history.html', context)
+
+@login_required
+def medical_history(request):
+    return render(request, 'dashboard/medical_history.html', {})

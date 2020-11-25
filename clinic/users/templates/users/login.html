@@ -3,21 +3,22 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Log in to your account</h4>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}">{{ form|crispy }}
-            <button type="submit"
-                    class="btn btn-primary btn-block">Log in
-            </button>
-        </form>
+<center>
+    <div class="card mt-3 mb-3" style="max-width: 600px">
+        <div class="card-body">
+            <h4 class="card-title">Log in to your account</h4>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">{{ form|crispy }}
+                <button type="submit"
+                        class="btn btn-primary btn-block">Log in
+                </button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <p>Need An Account? <a class="ml-2" href="{% url 'users:register' %}">Register Now</a></p>
+            <p>Forgot password? <a class="ml-2" href="{% url 'password_reset' %}">Reset password</a></p>
+        </div>
     </div>
-    <div class="card-footer">
-        <p>Need An Account? <a class="ml-2" href="{% url 'users:register' %}">Register Now</a></p>
-        <p>Forgot password? <a class="ml-2" href="{% url 'password_reset' %}">Reset password</a></p>
-    </div>
-</div>
+</center>
 {% endblock %}

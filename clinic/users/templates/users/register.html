@@ -3,19 +3,21 @@
 
 {% block content %}
 
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Register for an account</h4>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input type="hidden" name="next" value="{{ next }}">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-        </form>
-        <small class="text-muted">
-            Already have an account?<a class="ml-2" href="{% url 'users:login' %}">Login Now</a>
-        </small>
+<center>
+    <div class="card mt-3 mb-3" style="max-width: 600px">
+        <div class="card-body">
+            <h4 class="card-title">Register for an account</h4>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="hidden" name="next" value="{{ next }}">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <small class="text-muted">
+                Already have an account?<a class="ml-2" href="{% url 'users:login' %}">Login Now</a>
+            </small>
+        </div>
     </div>
-</div>
+</center>
 
 {% endblock %}
