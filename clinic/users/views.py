@@ -12,6 +12,7 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic.edit import CreateView, UpdateView
 
+from .decorators import unauthenticated_user
 from .forms import RegistrationForm, UserCreationForm
 from .models import User
 
@@ -47,6 +48,7 @@ class ProfileView(UpdateView):
         return self.request.user
 
 
+@unauthenticated_user
 def register(request):
     if request.method == 'GET':
         return render(request, 'users/register.html')
