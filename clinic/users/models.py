@@ -118,12 +118,13 @@ GENDER_CHOICES = Choices(
     (3, 'unspecified', 'unspecified'),
 )
 
-USER_TYPE_CHOICES = Choices(
-    (1, 'patient', 'patient'),
-    (2, 'doctor', 'patient'),
-    (3, 'secretary', 'secretary'),
-    (4, 'nurse', 'nurse'),
-)
+
+# USER_TYPE_CHOICES = Choices(
+#     (1, 'patient', 'patient'),
+#     (2, 'doctor', 'patient'),
+#     (3, 'secretary', 'secretary'),
+#     (4, 'nurse', 'nurse'),
+# )
 
 
 class Profile(models.Model):
@@ -131,13 +132,12 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30, null=True, blank=True)
     mid_name = models.CharField(max_length=30, null=True, blank=True)
     last_name = models.CharField(max_length=30, null=True, blank=True)
-    gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, default=4, blank=True, null=True)
+    gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     nationality = models.CharField(max_length=30, null=True, blank=True)
     phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
     pesel = models.CharField(max_length=15, unique=True, null=True, blank=True)
     image = models.ImageField(default='default.jpg', upload_to='profile', null=True, blank=True)
-    user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=1, blank=True, null=True)
 
     def __str__(self):
         if self.first_name and self.last_name:
@@ -165,7 +165,17 @@ class Address(models.Model):
     postal_code = models.CharField(max_length=10, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.street} {self.home_number} {self.country} {self.postal_code}'
+        if self.street and self.home_number and self.country:
+            return f'{self.street} {self.home_number} {self.country}'
+        return self.user.email
+
+
+class Specialization(models.Model):
+    name = models.CharField(max_length=30, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Doctor(models.Model):
@@ -173,18 +183,22 @@ class Doctor(models.Model):
     first_name = models.CharField(max_length=30, null=True, blank=True)
     mid_name = models.CharField(max_length=30, null=True, blank=True)
     last_name = models.CharField(max_length=30, null=True, blank=True)
-    gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, default=4, blank=True, null=True)
+    gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
-    image = models.ImageField(default='default.jpg', upload_to='profile', null=True, blank=True)
-    user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=1, blank=True, null=True)
+    image = models.ImageField(default='default.jpg', upload_to='doctor', null=True, blank=True)
+    specialization = models.OneToOneField(Specialization, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         if self.first_name and self.last_name:
             return f'{self.first_name} {self.last_name}: {self.user.email}'
         return self.user.email
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
 
-class Specialization(models.Model):
-    specialization = models.CharField(max_length=30, null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
+        if img.width > 400:
+            output_size = (400, 400)
+            img.thumbnail(output_size)
+            img.save(self.image.path)

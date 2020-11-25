@@ -25,7 +25,7 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('email', 'is_staff', 'is_superuser', 'is_active', 'password1', 'password2')}),
         # ('Personal info', {'fields': ()}),
         ('Groups', {'fields': ('groups',)}),
-        ('Permissions', {'fields': ('user_permissions',)}),
+        # ('Permissions', {'fields': ('user_permissions',)}),
     )
 
     search_fields = ('email',)
