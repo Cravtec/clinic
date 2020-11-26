@@ -1,0 +1,2393 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$Ung52EDTtWsK$l9tSjvJ+h6Do+lihqzXJMETvwtve2T5SWmy52yCOPek=",
+      "last_login": "2020-11-25T16:33:20.937Z",
+      "email": "matheuszmmi@gmail.com",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": true,
+      "date_joined": "2020-11-20T15:57:29Z",
+      "groups": [
+        6
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 28,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$K1gkKtCv2S11$9A89kxfaF7Cd34+XKAtG8afWDXAlsOEnlsz1AaTC/MQ=",
+      "last_login": null,
+      "email": "patient@gmail.com",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "date_joined": "2020-11-24T22:57:11.939Z",
+      "groups": [
+        6
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 29,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$8M08sZ1DAiUX$yeX0ipFLq5f2jTn9bJv+K9wJGpTNvWzpRi4HjgvSz9M=",
+      "last_login": null,
+      "email": "secretary@gmail.com",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "date_joined": "2020-11-24T22:57:54.544Z",
+      "groups": [
+        4
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 30,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$avr1wAe0Af4I$J2a3dUnAkgIc9fGJrUUk0PjhnxfT7y2RsKQp7Eixgok=",
+      "last_login": null,
+      "email": "doctor@gmail.com",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "date_joined": "2020-11-24T22:58:13.451Z",
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 31,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$nP8HwKQQxyzr$quFtGgYCMMBqAj+npAPWMOu8+vHw3TUfZ2P450k+PE4=",
+      "last_login": null,
+      "email": "patient2@gmail.com",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "date_joined": "2020-11-24T23:27:36.870Z",
+      "groups": [
+        6
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 32,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$0acPdu5Ksnwt$PnOHfy/3hib+sNophmQUKmNHoOkV2SRUEv9fnJRJ600=",
+      "last_login": null,
+      "email": "patient3@gmail.com",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "date_joined": "2020-11-24T23:30:49.791Z",
+      "groups": [
+        6
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 33,
+    "fields": {
+      "password": "pbkdf2_sha256$180000$6lELZZffyPg1$i7oByEJE4Lp/9LvdrigRDcYYS0VOUGj4Q3/AQvBv8iA=",
+      "last_login": null,
+      "email": "doctor2@gmail.com",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "date_joined": "2020-11-24T23:32:00.725Z",
+      "groups": [
+        5
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "first_name": "Mateusz",
+      "mid_name": null,
+      "last_name": "Mielniczuk",
+      "gender": 1,
+      "birth_date": null,
+      "nationality": null,
+      "phone_number": null,
+      "pesel": null,
+      "image": "profile/2020-05-29-170124.jpg"
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 25,
+    "fields": {
+      "user": 28,
+      "first_name": "First",
+      "mid_name": null,
+      "last_name": "Patient",
+      "gender": 2,
+      "birth_date": "1985-11-26",
+      "nationality": null,
+      "phone_number": null,
+      "pesel": "6546846168468",
+      "image": "default.jpg"
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 26,
+    "fields": {
+      "user": 29,
+      "first_name": "Gosia",
+      "mid_name": null,
+      "last_name": "Pyton",
+      "gender": 3,
+      "birth_date": "1985-11-26",
+      "nationality": null,
+      "phone_number": null,
+      "pesel": "651698498894",
+      "image": "default.jpg"
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 27,
+    "fields": {
+      "user": 30,
+      "first_name": "Frank",
+      "mid_name": "Benjamin",
+      "last_name": "Oetker",
+      "gender": 1,
+      "birth_date": null,
+      "nationality": null,
+      "phone_number": null,
+      "pesel": null,
+      "image": "profile/oetker.jpg"
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 28,
+    "fields": {
+      "user": 31,
+      "first_name": "Second",
+      "mid_name": null,
+      "last_name": "Patient",
+      "gender": 2,
+      "birth_date": "1985-11-26",
+      "nationality": null,
+      "phone_number": null,
+      "pesel": "54644648",
+      "image": "default.jpg"
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 29,
+    "fields": {
+      "user": 32,
+      "first_name": "Third",
+      "mid_name": null,
+      "last_name": "Patient",
+      "gender": 2,
+      "birth_date": "1985-11-26",
+      "nationality": null,
+      "phone_number": null,
+      "pesel": "654643535548",
+      "image": "default.jpg"
+    }
+  },
+  {
+    "model": "users.profile",
+    "pk": 30,
+    "fields": {
+      "user": 33,
+      "first_name": "Michaela",
+      "mid_name": null,
+      "last_name": "Quinn",
+      "gender": 2,
+      "birth_date": null,
+      "nationality": null,
+      "phone_number": null,
+      "pesel": null,
+      "image": "profile/queen.jpg"
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "country": "Iceland",
+      "home_number": null,
+      "street": null,
+      "address": null,
+      "town": null,
+      "state": null,
+      "postal_code": null
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 24,
+    "fields": {
+      "user": 28,
+      "country": null,
+      "home_number": null,
+      "street": null,
+      "address": null,
+      "town": null,
+      "state": null,
+      "postal_code": null
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 25,
+    "fields": {
+      "user": 29,
+      "country": null,
+      "home_number": null,
+      "street": null,
+      "address": null,
+      "town": null,
+      "state": null,
+      "postal_code": null
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 26,
+    "fields": {
+      "user": 30,
+      "country": "Gatemala",
+      "home_number": "8754",
+      "street": "Jana Paw\u0142a",
+      "address": null,
+      "town": "Gwatemala",
+      "state": "gwatemala",
+      "postal_code": "6546"
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 27,
+    "fields": {
+      "user": 31,
+      "country": "Iceland",
+      "home_number": "97",
+      "street": "Byrgavegur",
+      "address": "something",
+      "town": "Gwatemala",
+      "state": "Akureyrabaer",
+      "postal_code": "600"
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 28,
+    "fields": {
+      "user": 32,
+      "country": null,
+      "home_number": null,
+      "street": null,
+      "address": null,
+      "town": null,
+      "state": null,
+      "postal_code": null
+    }
+  },
+  {
+    "model": "users.address",
+    "pk": 29,
+    "fields": {
+      "user": 33,
+      "country": null,
+      "home_number": null,
+      "street": null,
+      "address": null,
+      "town": null,
+      "state": null,
+      "postal_code": null
+    }
+  },
+  {
+    "model": "users.doctor",
+    "pk": 1,
+    "fields": {
+      "user": 30,
+      "first_name": "Frank",
+      "mid_name": "Benjamin",
+      "last_name": "Oetker",
+      "gender": 1,
+      "birth_date": "1985-11-26",
+      "phone_number": "8888888",
+      "image": "doctor/oetker.jpg",
+      "specialization": 2
+    }
+  },
+  {
+    "model": "users.doctor",
+    "pk": 2,
+    "fields": {
+      "user": 33,
+      "first_name": "Michaela",
+      "mid_name": null,
+      "last_name": "Quinn",
+      "gender": 2,
+      "birth_date": "1963-11-18",
+      "phone_number": "88888988",
+      "image": "doctor/queen.jpg",
+      "specialization": 3
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "users",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "users",
+      "model": "profile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "users",
+      "model": "address"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "users",
+      "model": "specialization"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "users",
+      "model": "doctor"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "appointment",
+      "model": "payment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "appointment",
+      "model": "visitdescription"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "appointment",
+      "model": "prescription"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "appointment",
+      "model": "appointment"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "47kbhmm2dgnqo5fn2oeuxrg2tk43oij2",
+    "fields": {
+      "session_data": "NGFjNTYzMGEwYzI3Nzc1YTQ2NGYxMzk3NjJmNmY2NDU0OGIxZDkyNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlNTk0YTI5NzJmNzIyNTk0NTAwMzE2YWNjZTEwYmM3MzRkMzNjYTJlIn0=",
+      "expire_date": "2020-12-04T15:57:38.362Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "aevn5zluvq7fkj52spddzh1v14yavmw2",
+    "fields": {
+      "session_data": "NWJjZDIzMTZlOGNkNTRmNzM3ODEwMmI0NWIyYjU0MmQ3YjU5ZWZjZjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZDY3ZjRjZTE4OTVhNGU0ODdiMjNjOTliOWViZWFhNTRlMzg5MWJmIn0=",
+      "expire_date": "2020-12-07T20:33:34.733Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "c1y2g27bifn4ltc04ra22mse70kv1go9",
+    "fields": {
+      "session_data": "NWJjZDIzMTZlOGNkNTRmNzM3ODEwMmI0NWIyYjU0MmQ3YjU5ZWZjZjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZDY3ZjRjZTE4OTVhNGU0ODdiMjNjOTliOWViZWFhNTRlMzg5MWJmIn0=",
+      "expire_date": "2020-12-09T16:33:20.963Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "fof31lt18ec23yi0h73iojlm86ock0q1",
+    "fields": {
+      "session_data": "NWJjZDIzMTZlOGNkNTRmNzM3ODEwMmI0NWIyYjU0MmQ3YjU5ZWZjZjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZDY3ZjRjZTE4OTVhNGU0ODdiMjNjOTliOWViZWFhNTRlMzg5MWJmIn0=",
+      "expire_date": "2020-12-05T20:58:05.931Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jeoriwym44asi0j33un0appeorx005zu",
+    "fields": {
+      "session_data": "ZjRkOTM3YzVlZmYxMGM3ZTliMDA2OTZiOTM1YzRjMTc5Zjg4OTljNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkODQxNGI0NDRhYWM1ODFkMDQ3YjUxNjg5Yjg0OTVlM2E5OWZlMDViIn0=",
+      "expire_date": "2020-12-04T23:46:41.766Z"
+    }
+  },
+  {
+    "model": "users.specialization",
+    "pk": 1,
+    "fields": {
+      "name": "Dentist",
+      "description": ""
+    }
+  },
+  {
+    "model": "users.specialization",
+    "pk": 2,
+    "fields": {
+      "name": "Ophthalmologist",
+      "description": ""
+    }
+  },
+  {
+    "model": "users.specialization",
+    "pk": 3,
+    "fields": {
+      "name": "Laryngologist",
+      "description": ""
+    }
+  },
+  {
+    "model": "appointment.appointment",
+    "pk": 1,
+    "fields": {
+      "date": "2020-11-24",
+      "start_time": "06:00:00",
+      "end_time": "12:00:00",
+      "profile": 25,
+      "doctor": 1
+    }
+  },
+  {
+    "model": "appointment.appointment",
+    "pk": 2,
+    "fields": {
+      "date": "2020-08-19",
+      "start_time": "12:00:00",
+      "end_time": "18:00:00",
+      "profile": 28,
+      "doctor": 2
+    }
+  },
+  {
+    "model": "appointment.appointment",
+    "pk": 3,
+    "fields": {
+      "date": "2020-04-14",
+      "start_time": "00:00:00",
+      "end_time": "06:00:00",
+      "profile": 29,
+      "doctor": 1
+    }
+  },
+  {
+    "model": "appointment.appointment",
+    "pk": 4,
+    "fields": {
+      "date": "2020-08-12",
+      "start_time": "06:00:00",
+      "end_time": "18:00:00",
+      "profile": 29,
+      "doctor": 2
+    }
+  },
+  {
+    "model": "appointment.payment",
+    "pk": 1,
+    "fields": {
+      "date": "2020-11-23",
+      "amount": "0.61",
+      "status": true,
+      "appointment": 2
+    }
+  },
+  {
+    "model": "appointment.payment",
+    "pk": 2,
+    "fields": {
+      "date": "2020-08-19",
+      "amount": "5424.00",
+      "status": false,
+      "appointment": 2
+    }
+  },
+  {
+    "model": "appointment.payment",
+    "pk": 3,
+    "fields": {
+      "date": "2020-08-19",
+      "amount": "12.04",
+      "status": false,
+      "appointment": 1
+    }
+  },
+  {
+    "model": "appointment.payment",
+    "pk": 4,
+    "fields": {
+      "date": "2020-11-24",
+      "amount": "12.33",
+      "status": true,
+      "appointment": 3
+    }
+  },
+  {
+    "model": "appointment.payment",
+    "pk": 5,
+    "fields": {
+      "date": "2020-11-24",
+      "amount": "12.05",
+      "status": false,
+      "appointment": 4
+    }
+  },
+  {
+    "model": "appointment.visitdescription",
+    "pk": 1,
+    "fields": {
+      "appointment": 1,
+      "symptoms": "feaver\r\nneck ache\r\nbold head",
+      "diagnose": "stupidity",
+      "treatment": "can't be cured"
+    }
+  },
+  {
+    "model": "appointment.visitdescription",
+    "pk": 2,
+    "fields": {
+      "appointment": 2,
+      "symptoms": "always happy\r\nalways smiling\r\nalways laughing\r\nfull of energy",
+      "diagnose": "too much drugs",
+      "treatment": "send to addiction treatment clinic"
+    }
+  },
+  {
+    "model": "appointment.visitdescription",
+    "pk": 3,
+    "fields": {
+      "appointment": 3,
+      "symptoms": "night vision\r\nsuperstrenht",
+      "diagnose": "exposed to radiation",
+      "treatment": "Move away from the nuclear power plant"
+    }
+  },
+  {
+    "model": "appointment.visitdescription",
+    "pk": 4,
+    "fields": {
+      "appointment": 4,
+      "symptoms": "Running nose\r\ntearing",
+      "diagnose": "To much onions in the pocket",
+      "treatment": "Replace for something else eg. potatoes"
+    }
+  },
+  {
+    "model": "appointment.prescription",
+    "pk": 1,
+    "fields": {
+      "name": "Paracetamol",
+      "description": "3x1 after meal",
+      "date": "2020-11-24",
+      "appointment": 1
+    }
+  },
+  {
+    "model": "appointment.prescription",
+    "pk": 2,
+    "fields": {
+      "name": "Apap",
+      "description": "1x1 before meal",
+      "date": "2020-11-24",
+      "appointment": 2
+    }
+  },
+  {
+    "model": "appointment.prescription",
+    "pk": 3,
+    "fields": {
+      "name": "chlorine acid",
+      "description": "2x1 straight on dirty face",
+      "date": "2020-11-24",
+      "appointment": 1
+    }
+  },
+  {
+    "model": "appointment.prescription",
+    "pk": 4,
+    "fields": {
+      "name": "ointment for ass pain",
+      "description": "Use again as soon ass skin is dry",
+      "date": "2020-11-24",
+      "appointment": 3
+    }
+  },
+  {
+    "model": "appointment.prescription",
+    "pk": 5,
+    "fields": {
+      "name": "Ruinoscorbin",
+      "description": "20x1 rutinoscorbin always come in handy",
+      "date": "2020-11-25",
+      "appointment": 4
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 6,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 6,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 6,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 6,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add profile",
+      "content_type": 7,
+      "codename": "add_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change profile",
+      "content_type": 7,
+      "codename": "change_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete profile",
+      "content_type": 7,
+      "codename": "delete_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view profile",
+      "content_type": 7,
+      "codename": "view_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add address",
+      "content_type": 8,
+      "codename": "add_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change address",
+      "content_type": 8,
+      "codename": "change_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete address",
+      "content_type": 8,
+      "codename": "delete_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view address",
+      "content_type": 8,
+      "codename": "view_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add specialization",
+      "content_type": 9,
+      "codename": "add_specialization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change specialization",
+      "content_type": 9,
+      "codename": "change_specialization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete specialization",
+      "content_type": 9,
+      "codename": "delete_specialization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view specialization",
+      "content_type": 9,
+      "codename": "view_specialization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add doctor",
+      "content_type": 10,
+      "codename": "add_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change doctor",
+      "content_type": 10,
+      "codename": "change_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete doctor",
+      "content_type": 10,
+      "codename": "delete_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view doctor",
+      "content_type": 10,
+      "codename": "view_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add payment",
+      "content_type": 11,
+      "codename": "add_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change payment",
+      "content_type": 11,
+      "codename": "change_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete payment",
+      "content_type": 11,
+      "codename": "delete_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view payment",
+      "content_type": 11,
+      "codename": "view_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add visit description",
+      "content_type": 12,
+      "codename": "add_visitdescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change visit description",
+      "content_type": 12,
+      "codename": "change_visitdescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete visit description",
+      "content_type": 12,
+      "codename": "delete_visitdescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view visit description",
+      "content_type": 12,
+      "codename": "view_visitdescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add prescription",
+      "content_type": 13,
+      "codename": "add_prescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change prescription",
+      "content_type": 13,
+      "codename": "change_prescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete prescription",
+      "content_type": 13,
+      "codename": "delete_prescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view prescription",
+      "content_type": 13,
+      "codename": "view_prescription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add appointment",
+      "content_type": 14,
+      "codename": "add_appointment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change appointment",
+      "content_type": 14,
+      "codename": "change_appointment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete appointment",
+      "content_type": 14,
+      "codename": "delete_appointment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view appointment",
+      "content_type": 14,
+      "codename": "view_appointment"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+      "name": "administration",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 5,
+    "fields": {
+      "name": "doctor",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 6,
+    "fields": {
+      "name": "patient",
+      "permissions": []
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2020-11-20T16:09:39.196Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "2",
+      "object_repr": "Test@321.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2020-11-20T22:45:44.747Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "None None None None",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2020-11-20T22:46:00.779Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "matheuszmmi@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2020-11-20T22:46:42.622Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "matheuszmmi@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2020-11-20T23:45:47.670Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Mateusz Mielniczuk: matheuszmmi@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Last name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2020-11-20T23:56:23.417Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "3",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2020-11-20T23:56:23.424Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "4",
+      "object_repr": "Test3@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2020-11-20T23:56:23.429Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "2",
+      "object_repr": "Test@321.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2020-11-21T00:05:44.280Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "5",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2020-11-21T00:08:08.667Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "6",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2020-11-21T12:31:02.024Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "6",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2020-11-21T12:31:02.031Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "7",
+      "object_repr": "Test3@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2020-11-21T12:31:02.036Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "8",
+      "object_repr": "Test4@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2020-11-21T12:31:02.042Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "5",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2020-11-21T12:32:09.264Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "9",
+      "object_repr": "test@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2020-11-21T12:36:13.726Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "10",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2020-11-21T12:36:13.734Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "9",
+      "object_repr": "test@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.703Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "19",
+      "object_repr": "Test10@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.710Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "11",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.716Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "12",
+      "object_repr": "Test3@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.721Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "13",
+      "object_repr": "Test4@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.726Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "14",
+      "object_repr": "Test5@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.731Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "15",
+      "object_repr": "Test6@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.736Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "16",
+      "object_repr": "Test7@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.742Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "17",
+      "object_repr": "Test8@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2020-11-21T18:15:45.748Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "18",
+      "object_repr": "Test9@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2020-11-21T18:16:24.704Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "20",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2020-11-21T19:46:36.191Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "21",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2020-11-21T19:46:36.198Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "22",
+      "object_repr": "Test3@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2020-11-21T19:46:36.203Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "20",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2020-11-21T19:47:26.132Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "23",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2020-11-21T19:54:30.901Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "24",
+      "object_repr": "Test2@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2020-11-21T19:54:30.908Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "25",
+      "object_repr": "Test3@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2020-11-21T19:54:30.913Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "23",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2020-11-24T12:57:05.955Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "Doctor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2020-11-24T12:57:11.153Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "Secretary",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2020-11-24T12:57:15.682Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "3",
+      "object_repr": "Patient",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+      "action_time": "2020-11-24T22:43:24.885Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "Secretary",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+      "action_time": "2020-11-24T22:43:59.255Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "4",
+      "object_repr": "administration",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+      "action_time": "2020-11-24T22:44:05.109Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "5",
+      "object_repr": "doctor",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+      "action_time": "2020-11-24T22:44:10.925Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "Doctor",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+      "action_time": "2020-11-24T22:44:10.932Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "3",
+      "object_repr": "Patient",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+      "action_time": "2020-11-24T22:44:44.077Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "6",
+      "object_repr": "patient",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+      "action_time": "2020-11-24T22:45:04.421Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "27",
+      "object_repr": "Test5@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+      "action_time": "2020-11-24T22:45:04.428Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "26",
+      "object_repr": "Test@gmail.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+      "action_time": "2020-11-24T22:57:12.056Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "28",
+      "object_repr": "patient@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+      "action_time": "2020-11-24T22:57:54.652Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "29",
+      "object_repr": "secretary@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2020-11-24T22:58:13.567Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "30",
+      "object_repr": "doctor@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+      "action_time": "2020-11-24T22:58:42.348Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "1",
+      "object_repr": "Specialization object (1)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+      "action_time": "2020-11-24T22:59:31.867Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "2",
+      "object_repr": "Specialization object (2)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+      "action_time": "2020-11-24T22:59:48.890Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "3",
+      "object_repr": "Specialization object (3)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+      "action_time": "2020-11-24T23:16:48.613Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "Frank Oetker: doctor@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+      "action_time": "2020-11-24T23:20:28.769Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "26",
+      "object_repr": "Jana Paw\u0142a 8754 Gatemala",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Country\", \"Home number\", \"Street\", \"Town\", \"State\", \"Postal code\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+      "action_time": "2020-11-24T23:21:32.682Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "27",
+      "object_repr": "Frank Oetker: doctor@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Mid name\", \"Last name\", \"Gender\", \"Image\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+      "action_time": "2020-11-24T23:24:04.321Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "Frank Oetker: doctor@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Specialization\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+      "action_time": "2020-11-24T23:25:33.107Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "1",
+      "object_repr": "2020-11-24: Patient: None None: Doctor: Frank Oetker",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+      "action_time": "2020-11-24T23:26:08.865Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "25",
+      "object_repr": "First Patient: patient@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Gender\", \"Birth date\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+      "action_time": "2020-11-24T23:26:51.211Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "26",
+      "object_repr": "Gosia Pyton: secretary@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Gender\", \"Birth date\", \"Pesel\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+      "action_time": "2020-11-24T23:27:00.689Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "25",
+      "object_repr": "First Patient: patient@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Pesel\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+      "action_time": "2020-11-24T23:27:36.992Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "31",
+      "object_repr": "patient2@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+      "action_time": "2020-11-24T23:28:03.116Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "28",
+      "object_repr": "Second Patient: patient2@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Gender\", \"Birth date\", \"Pesel\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+      "action_time": "2020-11-24T23:28:21.238Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "27",
+      "object_repr": "Byrgavegur 97 Iceland",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Country\", \"Home number\", \"Street\", \"Address\", \"Town\", \"State\", \"Postal code\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+      "action_time": "2020-11-24T23:28:45.125Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Mateusz Mielniczuk: matheuszmmi@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Gender\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+      "action_time": "2020-11-24T23:30:49.912Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "32",
+      "object_repr": "patient3@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+      "action_time": "2020-11-24T23:32:00.834Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "33",
+      "object_repr": "doctor2@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+      "action_time": "2020-11-24T23:35:07.591Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "2",
+      "object_repr": "Michaela Quinn: doctor2@gmail.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+      "action_time": "2020-11-24T23:36:45.307Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "29",
+      "object_repr": "Third Patient: patient3@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Gender\", \"Birth date\", \"Pesel\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+      "action_time": "2020-11-24T23:37:06.911Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "30",
+      "object_repr": "Michaela Quinn: doctor2@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Gender\", \"Image\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+      "action_time": "2020-11-24T23:37:51.819Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "2",
+      "object_repr": "2020-08-19: Patient: Second Patient: Doctor: Michaela Quinn",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+      "action_time": "2020-11-24T23:40:21.919Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "1",
+      "object_repr": "Second Patient 0.61PLN",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+      "action_time": "2020-11-24T23:41:05.041Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "2",
+      "object_repr": "Second Patient 54PLN",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+      "action_time": "2020-11-24T23:41:30.770Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "3",
+      "object_repr": "First Patient 12.04PLN",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+      "action_time": "2020-11-24T23:47:02.626Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "2",
+      "object_repr": "Second Patient 5424PLN",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Amount\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+      "action_time": "2020-11-24T23:50:44.062Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Paracetamol - 2020-11-24",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+      "action_time": "2020-11-24T23:51:19.081Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "Apap - 2020-11-24",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+      "action_time": "2020-11-24T23:52:38.326Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "chlorine acid - 2020-11-24",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+      "action_time": "2020-11-24T23:54:02.268Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "1",
+      "object_repr": "First Patient",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+      "action_time": "2020-11-24T23:56:04.934Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "2",
+      "object_repr": "Second Patient",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+      "action_time": "2020-11-24T23:56:41.124Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "3",
+      "object_repr": "2020-04-14: Third Patient | Dr(Frank Oetker)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+      "action_time": "2020-11-24T23:57:04.873Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "4",
+      "object_repr": "2020-08-12: Third Patient | Dr(Michaela Quinn)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+      "action_time": "2020-11-24T23:57:31.715Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "4",
+      "object_repr": "Third Patient 12.33PLN",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+      "action_time": "2020-11-24T23:57:48.686Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "5",
+      "object_repr": "Third Patient 12.05PLN",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+      "action_time": "2020-11-24T23:59:24.325Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "ointment for ass pain - 2020-11-24",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+      "action_time": "2020-11-25T00:00:30.774Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "5",
+      "object_repr": "Ruinoscorbin - 2020-11-25",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+      "action_time": "2020-11-25T00:03:05.073Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "Third Patient",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+      "action_time": "2020-11-25T00:04:31.526Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "4",
+      "object_repr": "Third Patient",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+      "action_time": "2020-11-25T08:05:28.668Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "matheuszmmi@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+      "action_time": "2020-11-25T08:40:08.420Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "matheuszmmi@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+  }
+]

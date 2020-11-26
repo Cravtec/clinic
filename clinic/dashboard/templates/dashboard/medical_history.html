@@ -8,17 +8,30 @@
 
 {% block content %}
 
-    <div class="page-inner">
+<center><strong><h1>Secretary</h1></strong></center>
+<br>
+<hr>
+<br>
+<center><strong><h1>Doctor</h1></strong></center>
+<br>
+<hr>
+<br>
+<center><strong><h1>Patient</h1></strong></center>
+<br>
+<hr>
+<br>
+
+<div class="page-inner">
     <h1>Medical History</h1>
-        {% if request.user.groups.all.0.name == 'patient'%}
-            <p>Patient</p>
+    {% if request.user.groups.all.0.name == 'patient'%}
+    <p>Patient</p>
 
-        {% elif request.user.groups.all.0.name == 'doctor'%}
-            <p>Doctor</p>
+    {% elif request.user.groups.all.0.name == 'doctor'%}
+    <p>Doctor</p>
 
-        {% else %}
-            Nothing
-        {% endif %}
-    </div>
+    {% else %}
+    Nothing
+    {% endif %}
+</div>
 
 {% endblock %}

@@ -188,6 +188,7 @@ class Doctor(models.Model):
     phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
     image = models.ImageField(default='default.jpg', upload_to='doctor', null=True, blank=True)
     specialization = models.OneToOneField(Specialization, on_delete=models.CASCADE, blank=True, null=True)
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         if self.first_name and self.last_name:

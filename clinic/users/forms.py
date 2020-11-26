@@ -1,12 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-# from crispy_forms.helper import FormHelper
-# from crispy_forms.layout import Layout, Submit, Row, Column, MultiWidgetField
-
 from datetime import datetime
 
-from .models import User, Profile, Address
+from .models import User, Profile, Address, Doctor, Specialization
 
 
 class RegistrationForm(forms.ModelForm):
@@ -91,8 +88,13 @@ class ProfileUpdateForm(forms.ModelForm):
         widget=forms.SelectDateWidget(
             empty_label=("Year", "Month", "Day"),
             years=range(datetime.now().year - 120, datetime.now().year + 1)
-
         ))
+
+
+class DoctorUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Doctor
+        fields = '__all__'
 
 
 class AddressUpdateForm(forms.ModelForm):
@@ -100,21 +102,8 @@ class AddressUpdateForm(forms.ModelForm):
         model = Address
         fields = ['country', 'home_number', 'street', 'address', 'town', 'state', 'postal_code']
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     self.helper = FormHelper()
-    #     self.helper.layout = Layout(
-    #         'country',
-    #         Row(
-    #             Column('home_number'),
-    #             Column('street'),
-    #             # css_class='form-row'
-    #         ),
-    #         'address',
-    #         Row(
-    #             Column('town'),
-    #             Column('state'),
-    #             Column('postal_code'),
-    #             # css_class='form-row'
-    #         ),
-    #     )
+
+class SpecializationUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Specialization
+        fields = '__all__'
