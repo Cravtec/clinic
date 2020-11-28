@@ -1,24 +1,13 @@
 {% extends "layouts/base.html" %}
 
-{% load crispy_forms_tags %}
-
-{% load auth_extras %}
-
 {% load static %}
 
 {% block content %}
 
-    <div class="page-inner">
-    <h1>Medical History</h1>
-        {% if request.user.groups.all.0.name == 'patient'%}
-            <p>Patient</p>
 
-        {% elif request.user.groups.all.0.name == 'doctor'%}
-            <p>Doctor</p>
+<div class="page-inner">
+<h1>Calendar</h1>
 
-        {% else %}
-            Nothing
-        {% endif %}
-    </div>
-
+  <div id='calendar'></div>
+</div>
 {% endblock %}
