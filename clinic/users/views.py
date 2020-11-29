@@ -13,7 +13,10 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic.edit import CreateView, UpdateView
 
 from .forms import RegistrationForm, UserCreationForm
-from .models import User
+from .models import User, Profile, Address
+
+from django.contrib.auth.models import Group
+PATIENT = Group.objects.get(name='patient')
 
 UserModel = get_user_model()
 
@@ -35,18 +38,6 @@ class RegistrationView(CreateView):
         return success_url
 
 
-class ProfileView(UpdateView):
-    model = User
-    fields = []
-    template_name = 'users/profile.html'
-
-    def get_success_url(self):
-        return reverse('index')
-
-    def get_object(self):
-        return self.request.user
-
-
 def register(request):
     if request.method == 'GET':
         return render(request, 'users/register.html')
@@ -57,6 +48,9 @@ def register(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+            user.groups.add(PATIENT)
+            Profile.objects.create(user=user)
+            Address.objects.create(user=user)
             current_site = get_current_site(request)
             mail_subject = 'Activate your account.'
             message = render_to_string('users/acc_active_email.html', {
@@ -88,3 +82,15 @@ def activate(request, uidb64, token):
         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+# class ProfileView(UpdateView):
+#     model = User
+#     fields = []
+#     template_name = 'users/profile.html'
+#
+#     def get_success_url(self):
+#         return reverse('index')
+#
+#     def get_object(self):
+#         return self.request.user
