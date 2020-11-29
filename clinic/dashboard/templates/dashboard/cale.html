@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="page-inner">
+    <h1>All Appointments D</h1>
+
+    {% for appointment in appointments %}
+
+                <p>{{ appointment }}</p>
+
+    {% endfor %}
+
+
+</div>
+{% endblock %}

@@ -8,6 +8,7 @@ var yearHeader = document.getElementById("yearHeader");
 var nextBtn = document.getElementById("next");
 var previousBtn = document.getElementById("previous");
 var datePicked = document.getElementById("date-picked");
+var dateChosen = document.getElementById("dateChosen")
 var appointmentPicked = document.getElementById("appointmentDate")
 var months = "";
 var days = "";
@@ -108,7 +109,21 @@ function showCalendar(month, year) {
           }
 
           currentTarget.classList.add("selected");
-          datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+          if (month+1 < 10) {
+            month_val = '0'+(month+1)
+          } else {
+            month_val = (month+1)
+          }
+
+          if (date < 10) {
+            date = '0'+ date
+          } else {
+            date = date
+          }
+
+
+          // datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+          dateChosen.setAttribute('value',year + "-" + month_val + "-" + date)
           appointmentPicked.setAttribute('value',date + " " + monthsArr[month] + " " + year)
 
         }

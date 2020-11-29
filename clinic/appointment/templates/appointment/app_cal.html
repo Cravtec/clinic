@@ -1,7 +1,5 @@
 {% extends "layouts/base.html" %}
 {% load static %}
-
-
 {% block content %}
 <!-- Calendar -->
 <style>
@@ -18,7 +16,7 @@
 </style>
 
 <div class="page-inner">
-    <h1>Calendar</h1>
+    <h1>App Calendar</h1>
     <div class="container">
         <div class="row">
             <div class="col-md first-col">
@@ -52,19 +50,9 @@
                         <select id="year"></select>
                     </div>
                 </div>
-
-<!--         <label id="date-picked">Date Picked</label>-->
-<!--        <input type="text" class="form-control form-control-lg" id="date-picked" onchange="timeChange()" value="{% now 'j F Y' %}"></input>-->
+                <p id="date-picked"></p>
                 <div>
-
-<input type="hidden"  id="dateChosen" class="form-control form-control-lg" value="{% now 'Y-m-d' %}" disabled>
-                    <button id="checkTime" class="button"  onclick="checkTime()">Check Time</button>
-
-                    <h2>Available appointments</h2>
-                    {% for appointment in appointments %}
-                        <button>{{ appointment }}</button>
-                    {% endfor %}
-<!--                    <label for="dateChosen">Date Choosed</label>-->
+                    <p id="appTime"></p>
                 </div>
             </div>
             <div class="col-md second-col">
@@ -79,51 +67,12 @@
                 <label for="patientName">Patient Name</label>
 				<input type="text" class="form-control form-control-lg" id="patientName" placeholder="Large Input" disabled>
                 <label for="appointmentDate">Date</label>
-				<input type="text" class="form-control form-control-lg" id="appointmentDate" value="{% now 'j F Y' %}" disabled>
-                <label for="appointmentTime">Time</label>
+				<input type="text" class="form-control form-control-lg" id="appointmentDate" value="" disabled>
+                <label for="appointmentTime">Date</label>
 				<input type="text" class="form-control form-control-lg" id="appointmentTime" value="" disabled>
-<div id="currentHours"></div>
-                <div id="currentHours2"></div>
 
             </div>
         </div>
     </div>
 </div>
-
-<script>
-function checkTime() {
-    var datechoosen = document.getElementById("dateChosen").value
-    document.getElementById("currentHours").innerHTML = datechoosen;
-    $.ajax({
-        type: 'GET',
-        dataType: "json",
-    url: "{% url 'dashboard:check_hours' %}",
-        // async: true,
-    data : JSON,
-    success: function (data) {
-            // var instance = JSON.parse(response["appointments"]);
-            // // var fields = instance[0];
-            // alert(instance)
-        // var instance = JSON.parse(response["appointments"]);
-        //             var fields = instance[0]["fields"];
-        //             $("#currentHours2").prepend(
-        //                 `${fields["time"]||""}`
-        //             )
-        $(data).each(function(i, hero){
-  	$('#currentHours').append(hero.time);
-  });
-
-    }
-});
-//     $.getJSON("{% url 'dashboard:check_hours' %}",
-// function(data){
-// 	/* console.log(data); */
-//   $(data).each(function(i, hero){
-//   	$('#currentHours').append(hero.time);
-//   });
-// })
-}
-</script>
-
-
 {% endblock %}
