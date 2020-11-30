@@ -15,6 +15,21 @@
         padding-top: 0;
         margin-top: 0;
     }
+
+    #hours-display{
+        text-align: center;
+    }
+
+    #hours-display .check-time {
+        margin: 10px 0 20px 0;
+    }
+
+    #hours-display .check-time {
+        margin: 10px 0 20px 0;
+    }
+    #hours-display .available-time{
+        margin: 10px;
+    }
 </style>
 
 <div class="page-inner">
@@ -55,15 +70,16 @@
 
 <!--         <label id="date-picked">Date Picked</label>-->
 <!--        <input type="text" class="form-control form-control-lg" id="date-picked" onchange="timeChange()" value="{% now 'j F Y' %}"></input>-->
-                <div>
+                <div id="hours-display">
 
-<input type="hidden"  id="dateChosen" class="form-control form-control-lg" value="{% now 'Y-m-d' %}" disabled>
-                    <button id="checkTime" class="button"  onclick="checkTime()">Check Time</button>
-
+                    <input type="text"  id="dateChosen" class="form-control form-control-lg" value="{% now 'Y-m-d' %}" disabled>
+                    <button id="checkTime" class="btn btn-outline-primary btn-lg check-time"  onclick="checkTime()">Check Time</button>
+<div id="currentHours"></div>
                     <h2>Available appointments</h2>
-                    {% for appointment in appointments %}
-                        <button>{{ appointment }}</button>
-                    {% endfor %}
+                    <div id="availableHours"></div>
+<!--                    {% for appointment in appointments %}-->
+<!--                        <button>{{ appointment }}</button>-->
+<!--                    {% endfor %}-->
 <!--                    <label for="dateChosen">Date Choosed</label>-->
                 </div>
             </div>
@@ -81,16 +97,16 @@
                 <label for="appointmentDate">Date</label>
 				<input type="text" class="form-control form-control-lg" id="appointmentDate" value="{% now 'j F Y' %}" disabled>
                 <label for="appointmentTime">Time</label>
-				<input type="text" class="form-control form-control-lg" id="appointmentTime" value="" disabled>
-<div id="currentHours"></div>
-                <div id="currentHours2"></div>
+				<input type="text" class="form-control form-control-lg" id="appointmentTime" value="test" disabled>
+
+
 
             </div>
         </div>
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 function checkTime() {
     var datechoosen = document.getElementById("dateChosen").value
     document.getElementById("currentHours").innerHTML = datechoosen;
@@ -101,28 +117,45 @@ function checkTime() {
         // async: true,
     data : JSON,
     success: function (data) {
-            // var instance = JSON.parse(response["appointments"]);
-            // // var fields = instance[0];
-            // alert(instance)
-        // var instance = JSON.parse(response["appointments"]);
-        //             var fields = instance[0]["fields"];
-        //             $("#currentHours2").prepend(
-        //                 `${fields["time"]||""}`
-        //             )
-        $(data).each(function(i, hero){
-  	$('#currentHours').append(hero.time);
-  });
+            $("#availableHours").html('');
 
+            var timeAvaliable = "";
+            $.each(data, function (k, v){
+                timeAvaliable += '<button class="btn btn-outline-primary btn-lg available-time" id="time'+ k +'" value="'+ v.time +'" onclick="getTime(this.id)">' + v.time + '</button>';
+                // timeAvaliable += '<button class="btn btn-outline-primary btn-lg available-time" onclick="pickTime()" value="">' + v.time + '</button>';
+            })
+            $('#availableHours').append(timeAvaliable);
     }
 });
-//     $.getJSON("{% url 'dashboard:check_hours' %}",
-// function(data){
-// 	/* console.log(data); */
-//   $(data).each(function(i, hero){
-//   	$('#currentHours').append(hero.time);
-//   });
-// })
+
 }
+
+function getTime(id){
+        var btn = document.getElementById(id).value;
+        // var appointmentTime = document.getElementById("appointmentTime")
+        //var val = $(this).val();
+       //alert(btn);
+        $('#appointmentTime').val(btn)
+}
+
+// $(function(){
+// $(".available-time").click(function() {
+//     var fired_button = $(this).val();
+//     alert(fired_button);
+// });
+// });
+// function pickTime(){
+//     var timePicked = document.getElementById("appointmentTime")
+//     var fired_button = $(this).val();
+//     alert(fired_button);
+    // timePicked.setAttribute($(this).val(), value);
+    // $('.available-time').click(function(){
+    //     alert($(this).val());
+    // });
+//}
+
+
+
 </script>
 
 

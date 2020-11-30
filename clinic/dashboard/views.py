@@ -81,7 +81,7 @@ def doctor(request):
     # #     template_name="dashboard/cale.html",
     # #     context={'appointments': time_to_display},
     # # )
-    return render(request, 'dashboard/doctors.html', {})
+    return render(request, 'dashboard/doctor.html', {})
 
 
 @login_required
@@ -91,40 +91,40 @@ def appointment(request):
 
 @login_required
 def calendar(request):
-    test_date = '2020-11-30'
-    #test_date = request.GET.get['dateChosen']
-    all_appointments = Appointment.objects.filter(date=test_date)
-    current_appointments = []
-    time_list = []
-    time_to_display = []
-
-    for appointment in all_appointments:
-        if appointment.start_time.hour < 10:
-            hours = '0' + str(appointment.start_time.hour)
-        else:
-            hours = appointment.start_time.hour
-
-        if appointment.start_time.minute == 0:
-            minutes = '00'
-        else:
-            minutes = appointment.start_time.minute
-        current_appointments.append(f'{hours}:{minutes}')
-
-    time_range = DateTimeRange("2015-01-01T09:00:00", "2015-01-01T17:00:00")
-    for value in time_range.range(relativedelta(minutes=30)):
-        time_list.append(str(value.time())[0:5])
-
-    for current_time in time_list:
-        if current_time not in current_appointments:
-            time_to_display.append(current_time)
-
-    # return JsonResponse({"appointments": all_appointments}, status=200)
-    return render(
-        request,
-        template_name="dashboard/calendar.html",
-        context={'appointments': time_to_display},
-    )
-    # return render(request, 'dashboard/calendar.html', {})
+    # test_date = '2020-11-30'
+    # #test_date = request.GET.get['dateChosen']
+    # all_appointments = Appointment.objects.filter(date=test_date)
+    # current_appointments = []
+    # time_list = []
+    # time_to_display = []
+    #
+    # for appointment in all_appointments:
+    #     if appointment.start_time.hour < 10:
+    #         hours = '0' + str(appointment.start_time.hour)
+    #     else:
+    #         hours = appointment.start_time.hour
+    #
+    #     if appointment.start_time.minute == 0:
+    #         minutes = '00'
+    #     else:
+    #         minutes = appointment.start_time.minute
+    #     current_appointments.append(f'{hours}:{minutes}')
+    #
+    # time_range = DateTimeRange("2015-01-01T09:00:00", "2015-01-01T17:00:00")
+    # for value in time_range.range(relativedelta(minutes=30)):
+    #     time_list.append(str(value.time())[0:5])
+    #
+    # for current_time in time_list:
+    #     if current_time not in current_appointments:
+    #         time_to_display.append(current_time)
+    #
+    # # return JsonResponse({"appointments": all_appointments}, status=200)
+    # return render(
+    #     request,
+    #     template_name="dashboard/calendar.html",
+    #     context={'appointments': time_to_display},
+    # )
+    return render(request, 'dashboard/calendar.html', {})
 
 
 @login_required
@@ -172,7 +172,7 @@ def check_hours(request, *args, **kwargs):
 
     #return HttpResponse(json.dumps(time_to_display), content_type='dashboard/calendar')
     #return JsonResponse({'appointments': time_to_display})
-    return JsonResponse({'appointments': result})
+    return JsonResponse( result)
     #return JsonResponse({"appointments": time_to_display}, status=200)
     # return render(
     #     request,

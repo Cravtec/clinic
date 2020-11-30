@@ -10,6 +10,8 @@ var previousBtn = document.getElementById("previous");
 var datePicked = document.getElementById("date-picked");
 var dateChosen = document.getElementById("dateChosen")
 var appointmentPicked = document.getElementById("appointmentDate")
+// var availableHours = document.getElementById("availableHours")
+var appointmentTime = document.getElementById("appointmentTime")
 var months = "";
 var days = "";
 var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -125,6 +127,8 @@ function showCalendar(month, year) {
           // datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
           dateChosen.setAttribute('value',year + "-" + month_val + "-" + date)
           appointmentPicked.setAttribute('value',date + " " + monthsArr[month] + " " + year)
+          appointmentTime.setAttribute('value',"")
+          //$("#availableHours").val('');
 
         }
 
