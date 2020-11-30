@@ -47,38 +47,6 @@ test_date1 = '2020-11-30'
 
 @login_required
 def doctor(request):
-    # test_date = test_date1
-    # all_appointments = Appointment.objects.filter(date=test_date)
-    # current_appointments = []
-    # time_list = []
-    # time_to_display = []
-    #
-    # for appointment in all_appointments:
-    #     if appointment.start_time.hour < 10:
-    #         hours = '0' + str(appointment.start_time.hour)
-    #     else:
-    #         hours = appointment.start_time.hour
-    #
-    #     if appointment.start_time.minute == 0:
-    #         minutes = '00'
-    #     else:
-    #         minutes = appointment.start_time.minute
-    #     current_appointments.append(f'{hours}:{minutes}')
-    #
-    # time_range = DateTimeRange("2015-01-01T09:00:00", "2015-01-01T17:00:00")
-    # for value in time_range.range(relativedelta(minutes=30)):
-    #     time_list.append(str(value.time())[0:5])
-    #
-    # for current_time in time_list:
-    #     if current_time not in current_appointments:
-    #         time_to_display.append(current_time)
-    #
-    # return JsonResponse({"appointments": time_to_display}, status=200)
-    # # return render(
-    # #     request,
-    # #     template_name="dashboard/cale.html",
-    # #     context={'appointments': time_to_display},
-    # # )
     return render(request, 'dashboard/doctor.html', {})
 
 
@@ -136,9 +104,9 @@ def app_cal(request):
 
 
 @login_required
-def check_hours(request, *args, **kwargs):
+def check_hours(request, query=None):
     test_date = '2020-11-30'
-    #test_date = request.GET.get['dateChosen', None]
+    #test_date = request.GET.get['dateChosen'] #??????????????????
     all_appointments = Appointment.objects.filter(date=test_date)
     current_appointments = []
     time_list = []
@@ -166,14 +134,4 @@ def check_hours(request, *args, **kwargs):
             time_to_display.append(current_time)
 
     result = {i: {"time": time_to_display[i]} for i in range(0, len(time_to_display))}
-    #result = json.dump(time_to_display)
-
-    #return HttpResponse(json.dumps(time_to_display), content_type='dashboard/calendar')
-    #return JsonResponse({'appointments': time_to_display})
-    return JsonResponse( result)
-    #return JsonResponse({"appointments": time_to_display}, status=200)
-    # return render(
-    #     request,
-    #     template_name="dashboard/calendar.html",
-    #     context={'appointments': time_to_display},
-    # )
+    return JsonResponse(result)

@@ -1,4 +1,4 @@
-
+from django.conf.urls import url
 from django.urls import path
 
 
@@ -15,6 +15,6 @@ urlpatterns = [
     path('calendar/', calendar, name='calendar'),
     path('medical_history/', app_cal, name='medical_history'),
     path('app_cal/', app_cal, name='app_cal'),
-    path('calendar/hours/', check_hours, name='check_hours'),
+    url('calendar/hours/$', check_hours, name='check_hours'),
     # path('myajaxtest/', views.myajaxtestview, name='ajax-test-view'),
 ]

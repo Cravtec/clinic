@@ -36,6 +36,7 @@ showCalendar(currentMonth, currentYear);
 nextBtn.addEventListener("click", next, false);
 previousBtn.addEventListener("click", previous, false);
 
+
 function yearRange(start, end) {
   var years = "";
 
@@ -98,6 +99,7 @@ function showCalendar(month, year) {
         cell.setAttribute("data-year", year);
         cell.setAttribute("data-month-name", months[month]);
         cell.className = "date-picker";
+        cell.onclick = "dataPicker()";
         cell.innerHTML = "<span>" + date + "</span>";
         cell.onclick = function(event) {
           var dates = document.querySelectorAll(".date-picker");
@@ -105,6 +107,9 @@ function showCalendar(month, year) {
           var date = currentTarget.dataset.date;
           var month = currentTarget.dataset.month - 1;
           var year = currentTarget.dataset.year;
+
+          clearTime();
+          checkTime();
 
           for (var i = 0; i < dates.length; i++) {
             dates[i].classList.remove("selected");
@@ -127,8 +132,6 @@ function showCalendar(month, year) {
           // datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
           dateChosen.setAttribute('value',year + "-" + month_val + "-" + date)
           appointmentPicked.setAttribute('value',date + " " + monthsArr[month] + " " + year)
-          appointmentTime.setAttribute('value',"")
-          //$("#availableHours").val('');
 
         }
 
@@ -148,3 +151,4 @@ function showCalendar(month, year) {
 function daysInMonth(month, year) {
   return 32 - new Date(year, month, 32).getDate();
 }
+
