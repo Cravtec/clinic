@@ -6,8 +6,6 @@ from django.core.serializers import json
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
-from rest_framework.response import Response
-
 # Create your views here.
 from users import forms as users_forms
 
