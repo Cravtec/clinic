@@ -99,7 +99,7 @@ function showCalendar(month, year) {
         cell.setAttribute("data-year", year);
         cell.setAttribute("data-month-name", months[month]);
         cell.className = "date-picker";
-        cell.onclick = "dataPicker()";
+        //cell.onclick = "dataPicker()";
         cell.innerHTML = "<span>" + date + "</span>";
         cell.onclick = function(event) {
           var dates = document.querySelectorAll(".date-picker");
@@ -109,7 +109,7 @@ function showCalendar(month, year) {
           var year = currentTarget.dataset.year;
 
           clearTime();
-          checkTime();
+
 
           for (var i = 0; i < dates.length; i++) {
             dates[i].classList.remove("selected");
@@ -132,7 +132,7 @@ function showCalendar(month, year) {
           // datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
           dateChosen.setAttribute('value',year + "-" + month_val + "-" + date)
           appointmentPicked.setAttribute('value',date + " " + monthsArr[month] + " " + year)
-
+          checkTime();
         }
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {

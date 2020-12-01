@@ -1,6 +1,7 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 
+{% load crispy_forms_tags %}
 
 {% block content %}
 <!-- Calendar -->
@@ -72,7 +73,7 @@
 <!--        <input type="text" class="form-control form-control-lg" id="date-picked" onchange="timeChange()" value="{% now 'j F Y' %}"></input>-->
                 <div id="hours-display">
 
-                    <input type="text"  name="dateChosen" id="dateChosen" class="form-control form-control-lg" value="{% now 'Y-m-d' %}" disabled>
+                    <input type="hidden"  name="dateChosen" id="dateChosen" class="form-control form-control-lg" value="{% now 'Y-m-d' %}" disabled>
 <!--                    <button id="checkTime" class="btn btn-outline-primary btn-lg check-time"  onclick="checkTime()">Check Time</button>-->
 <div id="currentHours"></div>
                     <h2>Available appointments</h2>
@@ -97,9 +98,12 @@
 				<input type="text" class="form-control form-control-lg" id="appointmentDate" value="{% now 'j F Y' %}" disabled>
                 <label for="appointmentTime">Time</label>
 				<input type="text" class="form-control form-control-lg" id="appointmentTime" value="" disabled>
-
-
-
+<div>
+            {{ form.doctor }}
+                {{ form.profile }}
+                {{ form.date }}
+                {{ form.start_time }}
+</div>
 
             </div>
         </div>
@@ -109,13 +113,14 @@
 <script type="text/javascript">
 function checkTime() {
     var datechoosen = document.getElementById("dateChosen").value
+    //debugger;
     //document.getElementById("currentHours").innerHTML = datechoosen;
     $.ajax({
         type: 'GET',
         dataType: "json",
-    url: "{% url 'dashboard:check_hours' %}",
-    data : JSON,
-    success: function (data) {
+        url: "{% url 'dashboard:check_hours' %}",
+        data : {"datechoosen":datechoosen},
+        success: function (data) {
             $("#availableHours").html('');
 
             var timeAvaliable = "";

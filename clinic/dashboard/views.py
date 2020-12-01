@@ -1,3 +1,5 @@
+from datetime import date
+
 from datetimerange import DateTimeRange
 from dateutil.relativedelta import relativedelta
 from django.contrib import messages
@@ -5,11 +7,15 @@ from django.contrib.auth.decorators import login_required
 from django.core.serializers import json
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
-
+from appointment import models as app_model
 # Create your views here.
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 from users import forms as users_forms
 
 from appointment.models import Appointment
+
+from dashboard.forms import CreateAppointmentForm
 
 
 @login_required
@@ -105,8 +111,11 @@ def app_cal(request):
 
 @login_required
 def check_hours(request, query=None):
-    test_date = '2020-11-30'
-    #test_date = request.GET.get['dateChosen'] #??????????????????
+    print(request.GET["datechoosen"])
+
+    test_date = request.GET["datechoosen"]
+    #test_date = date("id_date")
+
     all_appointments = Appointment.objects.filter(date=test_date)
     current_appointments = []
     time_list = []
@@ -135,3 +144,17 @@ def check_hours(request, query=None):
 
     result = {i: {"time": time_to_display[i]} for i in range(0, len(time_to_display))}
     return JsonResponse(result)
+
+
+
+
+
+
+
+class CreateAppointmentView(CreateView):
+    template_name = "dashboard/calendar.html"
+    model = app_model.Appointment
+
+    form_class = CreateAppointmentForm
+
+    success_url = reverse_lazy('dashboard:calendar')
