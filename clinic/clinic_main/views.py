@@ -2,10 +2,23 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from users import models as users_models
+from appointment import models as appointment_models
 
 
 def index(request):
-    return render(request, 'clinic_main/index.html', {})
+    doctors = users_models.Doctor.objects.all()
+    patients = users_models.Profile.objects.all()
+    specializations = users_models.Specialization.objects.all()
+    appointments = appointment_models.Appointment.objects.all()
+    context = {
+
+        "doctors": doctors,
+        "patients": patients,
+        "specializations": specializations,
+        "appointments": appointments
+
+    }
+    return render(request, 'clinic_main/index.html', context)
 
 
 def about(request):
@@ -31,3 +44,5 @@ def fee(request):
 class DoctorView(ListView):
     template_name = 'clinic_main/about.html'
     model = users_models.Doctor
+
+

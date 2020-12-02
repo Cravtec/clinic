@@ -8,37 +8,38 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>eClinique</h3>
+            <h3>Django Clinic</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              ul. Świętokrzyska 31/33 <br>
+              00-001 Warsaw<br>
+              Poland <br><br>
+              <strong>Phone:</strong> +48 22 755 55 55<br>
+              <strong>Email:</strong> django.clinic@example.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'clinic_main:index' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'clinic_main:about' %}">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'clinic_main:departments' %}">Departments</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'clinic_main:FAQ' %}">FAQ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'clinic_main:fees' %}">Fees</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'clinic_main:contact' %}">Contact</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
+<!--          <div class="col-lg-3 col-md-6 footer-links">-->
+<!--            <h4>Our Services</h4>-->
+<!--            <ul>-->
+<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>-->
+<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>-->
+<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>-->
+<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>-->
+<!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
 
 <!--          <div class="col-lg-4 col-md-6 footer-newsletter">-->
 <!--            <h4>Join Our Newsletter</h4>-->
@@ -56,7 +57,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>eClinique</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Django Clinic</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->

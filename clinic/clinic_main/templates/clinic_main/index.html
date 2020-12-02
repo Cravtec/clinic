@@ -4,9 +4,10 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
-        <h1>Welcome to eClinique</h1>
-        <h2>We are team of talanted designers making websites with Bootstrap</h2>
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <h1>Welcome to Django Clinic</h1>
+        <h2>We are a team of professional Doctors</h2>
+        <h2>Don't wait and join our clinic now</h2>
+        <a href="{% url 'users:register' %}" class="btn-get-started scrollto">Join Us</a>
     </div>
 </section><!-- End Hero -->
 <!-- ======= Why Us Section ======= -->
@@ -15,40 +16,29 @@
         <div class="row">
             <div class="col-lg-4 d-flex align-items-stretch">
                 <div class="content">
-                    <h3>Why Choose eClinique?</h3>
+                    <h3>Why Choose Django Clinic?</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                        Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                        Django Clinic is a nonprofit organization committed to clinical practice, education and
+                        research,
+                        providing expert, whole-person care to everyone who needs healing.
                     </p>
                     <div class="text-center">
-                        <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                        <a href="{% url 'clinic_main:about' %}" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-8 d-flex align-items-stretch">
                 <div class="icon-boxes d-flex flex-column justify-content-center">
                     <div class="row">
+                        {% for specialization in specializations %}
                         <div class="col-xl-4 d-flex align-items-stretch">
                             <div class="icon-box mt-4 mt-xl-0">
-                                <i class="bx bx-receipt"></i>
-                                <h4>Corporis voluptates sit</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                <i class="bx bx-heart"></i>
+                                <h4>{{ specialization.name }}</h4>
+                                <p>{{ specialization.description }}sdfoxjhoi uascvihjb soiuhvpasivnp aisudl hcovwaendgv-dsf</p>
                             </div>
                         </div>
-                        <div class="col-xl-4 d-flex align-items-stretch">
-                            <div class="icon-box mt-4 mt-xl-0">
-                                <i class="bx bx-cube-alt"></i>
-                                <h4>Ullamco laboris ladore pan</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 d-flex align-items-stretch">
-                            <div class="icon-box mt-4 mt-xl-0">
-                                <i class="bx bx-images"></i>
-                                <h4>Labore consequatur</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div><!-- End .content-->
             </div>
@@ -59,110 +49,119 @@
 <section id="counts" class="counts">
     <div class="container">
         <div class="row">
+            <!--            {% with doctor.count as doctor_count %}-->
             <div class="col-lg-3 col-md-6">
                 <div class="count-box">
                     <i class="icofont-doctor-alt"></i>
-                    <span data-toggle="counter-up">85</span>
+                    <span data-toggle="counter-up">{{ doctors.count }}</span>
                     <p>Doctors</p>
                 </div>
             </div>
+            <!--            {% endwith %}-->
             <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                 <div class="count-box">
                     <i class="icofont-patient-bed"></i>
-                    <span data-toggle="counter-up">18</span>
-                    <p>Departments</p>
+                    <span data-toggle="counter-up">{{ patients.count }}</span>
+                    <p>Patients</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                 <div class="count-box">
                     <i class="icofont-laboratory"></i>
-                    <span data-toggle="counter-up">8</span>
-                    <p>Research Labs</p>
+                    <span data-toggle="counter-up">{{ specializations.count }}</span>
+                    <p>Departments</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                 <div class="count-box">
                     <i class="icofont-award"></i>
-                    <span data-toggle="counter-up">150</span>
-                    <p>Awards</p>
+                    <span data-toggle="counter-up">{{ appointments.count }}</span>
+                    <p>Cured patients</p>
                 </div>
             </div>
         </div>
     </div>
 </section><!-- End Counts Section -->
-<!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials">
-    <div class="container">
-        <div class="owl-carousel testimonials-carousel">
-            <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                    <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                    <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                    <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                    <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!-- End Testimonials Section -->
+<!--&lt;!&ndash; ======= Testimonials Section ======= &ndash;&gt;-->
+<!--<section id="testimonials" class="testimonials">-->
+<!--    <div class="container">-->
+<!--        <div class="owl-carousel testimonials-carousel">-->
+<!--            <div class="testimonial-wrap">-->
+<!--                <div class="testimonial-item">-->
+<!--                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">-->
+<!--                    <h3>Saul Goodman</h3>-->
+<!--                    <h4>Ceo &amp; Founder</h4>-->
+<!--                    <p>-->
+<!--                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
+<!--                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.-->
+<!--                        Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.-->
+<!--                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="testimonial-wrap">-->
+<!--                <div class="testimonial-item">-->
+<!--                    <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">-->
+<!--                    <h3>Sara Wilsson</h3>-->
+<!--                    <h4>Designer</h4>-->
+<!--                    <p>-->
+<!--                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
+<!--                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram-->
+<!--                        malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.-->
+<!--                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="testimonial-wrap">-->
+<!--                <div class="testimonial-item">-->
+<!--                    <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">-->
+<!--                    <h3>Jena Karlis</h3>-->
+<!--                    <h4>Store Owner</h4>-->
+<!--                    <p>-->
+<!--                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
+<!--                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis-->
+<!--                        minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.-->
+<!--                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="testimonial-wrap">-->
+<!--                <div class="testimonial-item">-->
+<!--                    <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">-->
+<!--                    <h3>Matt Brandon</h3>-->
+<!--                    <h4>Freelancer</h4>-->
+<!--                    <p>-->
+<!--                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
+<!--                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim-->
+<!--                        velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum-->
+<!--                        veniam.-->
+<!--                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="testimonial-wrap">-->
+<!--                <div class="testimonial-item">-->
+<!--                    <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">-->
+<!--                    <h3>John Larson</h3>-->
+<!--                    <h4>Entrepreneur</h4>-->
+<!--                    <p>-->
+<!--                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
+<!--                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim-->
+<!--                        culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum-->
+<!--                        quid.-->
+<!--                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>&lt;!&ndash; End Testimonials Section &ndash;&gt;-->
 <!-- ======= Appointment Section ======= -->
 <section id="appointment" class="appointment section-bg">
     <div class="container">
         <div class="section-title">
             <h2>Make an Appointment</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <p>Don't wait up. Visit our clinic now. Just click below and start treatment.</p>
         </div>
         {% if user.is_authenticated %}
         <a href="{% url 'dashboard:calendar' %}" class="appointment-btn scrollto">Make an Appointment</a>
