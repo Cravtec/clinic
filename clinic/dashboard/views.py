@@ -72,14 +72,11 @@ def app_cal(request):
 
 @login_required
 def check_hours(request, query=None):
-    # print(request.GET["datechoosen"])
+    print(request.GET["datechoosen"])
     picked_date = request.GET["datechoosen"]
     doctor_id = request.GET["id_doctor"]
 
-    if isinstance(doctor_id, int):
-        all_appointments = Appointment.objects.filter(date=picked_date, doctor_id=doctor_id)
-    else:
-        all_appointments = Appointment.objects.filter(date=picked_date)
+    all_appointments = Appointment.objects.filter(date=picked_date, doctor_id=doctor_id)
 
     current_appointments = []
     time_list = []
