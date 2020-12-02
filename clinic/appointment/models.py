@@ -20,14 +20,14 @@ class Payment(models.Model):
     date = models.DateField(auto_now_add=True, null=True, blank=True)
     amount = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     status = models.BooleanField(default=False)
-    appointment = models.ForeignKey(Appointment, null=True, on_delete=models.DO_NOTHING)
+    appointment = models.ForeignKey(Appointment, null=True, on_delete=models.CASCADE, related_name='payment')
 
     def __str__(self):
         return f'{self.appointment.profile.first_name} {self.appointment.profile.last_name} {self.amount}PLN'
 
 
 class VisitDescription(models.Model):
-    appointment = models.ForeignKey(Appointment, null=True, on_delete=models.DO_NOTHING)
+    appointment = models.ForeignKey(Appointment, null=True, on_delete=models.CASCADE, related_name='visit')
     symptoms = models.TextField(null=True, blank=True)
     diagnose = models.TextField(null=True, blank=True)
     treatment = models.TextField(null=True, blank=True)
@@ -40,7 +40,7 @@ class Prescription(models.Model):
     name = models.CharField(max_length=30, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     date = models.DateField(auto_now_add=True, null=True, blank=True)
-    appointment = models.ForeignKey(Appointment, null=True, on_delete=models.DO_NOTHING)
+    appointment = models.ForeignKey(Appointment, null=True, on_delete=models.CASCADE, related_name='prescription')
 
     def __str__(self):
         return f'{self.name} - {self.date}'

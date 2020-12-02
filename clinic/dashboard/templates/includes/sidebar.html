@@ -46,7 +46,7 @@
 
             {% url 'dashboard:appointment' as appointment_url %}
             <li class="nav-item {% if request.get_full_path == appointment_url %}active{% endif %}">
-                <a href="{% url 'dashboard:appointment' %}">
+                <a href="{% url 'dashboard:appointments' %}">
                     <i class="fa fa-table"></i>
                     <p>Appointments</p>
                 </a>
@@ -60,9 +60,17 @@
                 </a>
             </li>
 
-            {% url 'dashboard:doctor' as doctor_url %}
-            <li class="nav-item {% if request.get_full_path == doctor_url %}active{% endif %}">
-                <a href="{% url 'dashboard:doctor' %}">
+            {% url 'dashboard:patients' as patients_url %}
+            <li class="nav-item {% if request.get_full_path == patients_url %}active{% endif %}">
+                <a href="{% url 'dashboard:patients' %}">
+                    <i class="fas fa-procedures"></i>
+                    <p>Patients</p>
+                </a>
+            </li>
+
+            {% url 'dashboard:doctors' as doctors_url %}
+            <li class="nav-item {% if request.get_full_path == doctors_url %}active{% endif %}">
+                <a href="{% url 'dashboard:doctors' %}">
                     <i class="fa fa-user-md"></i>
                     <p>Doctors</p>
                 </a>

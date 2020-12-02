@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'appointment.apps.AppointmentConfig',
     'bootstrap4',
     'crispy_forms',
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'users.User'

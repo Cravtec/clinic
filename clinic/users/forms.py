@@ -94,7 +94,15 @@ class ProfileUpdateForm(forms.ModelForm):
 class DoctorUpdateForm(forms.ModelForm):
     class Meta:
         model = Doctor
-        fields = '__all__'
+        fields = ['first_name', 'mid_name', 'last_name', 'gender', 'birth_date',
+                  'phone_number', 'description', 'specialization', 'image']
+
+    birth_date = forms.DateField(
+        required=False,
+        widget=forms.SelectDateWidget(
+            empty_label=("Year", "Month", "Day"),
+            years=range(datetime.now().year - 120, datetime.now().year + 1)
+        ))
 
 
 class AddressUpdateForm(forms.ModelForm):
@@ -106,4 +114,4 @@ class AddressUpdateForm(forms.ModelForm):
 class SpecializationUpdateForm(forms.ModelForm):
     class Meta:
         model = Specialization
-        fields = '__all__'
+        fields = ['name', 'description']

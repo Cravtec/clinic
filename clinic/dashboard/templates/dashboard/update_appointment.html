@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<center>
+    <div class="card mt-3 mb-3" style="max-width: 600px">
+        <div class="card-body">
+            <h4 class="card-title">Update appointment</h4>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="hidden" name="next" value="{{ next }}">
+                <div class="row">
+                    <div class="col-4">
+                        <a class="btn btn-dark btn-block" role="button" href="{% url 'dashboard:appointments' %}">
+                            Go back
+                        </a>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-block">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</center>
+
+
+{% endblock %}

@@ -8,16 +8,115 @@
 
 {% block content %}
 
-<center><strong><h1>Secretary</h1></strong></center>
-<br>
-<hr>
-<br>
 <center><strong><h1>Doctor</h1></strong></center>
 <br>
 <hr>
 <br>
 <center><strong><h1>Patient</h1></strong></center>
 <br>
+{% for appointment in appointments %}
+
+<div class="jumbotron mx-auto" style="max-width:1000px">
+
+
+    <div class="row">
+        <div class="col-8">
+            <h1>{{ appointment.profile.first_name }} {{ appointment.profile.last_name }}</h1>
+        </div>
+        <div class="col text-right">
+            <h4>{{ appointment.date }}</h4>
+        </div>
+    </div>
+    <hr class="my-2">
+    <div class="row">
+        <div class="col-8">
+            <h3>Doctor: {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</h3>
+        </div>
+        <div class="col text-right">
+            <i> form {{ appointment.start_time }} to {{ appointment.end_time }}</i>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3">
+
+        <div class="card-header"><h3>Visit Description</h3></div>
+        <div class="card-body">
+            <h4>Symptoms</h4>
+            <p class="card-text">{{ appointment.visit.all.0.symptoms }}</p>
+        </div>
+        <div class="card-body">
+            <h4>Diagnose</h4>
+            <p class="card-text">{{ appointment.visit.all.0.diagnose }}</p>
+        </div>
+        <div class="card-body">
+            <h4>Treatment</h4>
+            <p class="card-text">{{ appointment.visit.all.0.treatment }}</p>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-8">
+            <div class="card text-white bg-info mb-3">
+
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h3>Prescription</h3>
+                        </div>
+                        <div class="col text-right">
+                            <h4>{{ appointment.prescription.all.0.date }}</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-body">
+
+                    <h4>{{ appointment.prescription.all.0.name }}</h4>
+
+                    <p class="card-text">{{ appointment.prescription.all.0.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-white {% if appointment.payment.all.0.status %}bg-success{% else %}bg-warning{% endif %} mb-2">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Payment</h3>
+                        </div>
+                        <div class="col">
+                            <h5 class="text-right">{{ appointment.payment.all.0.date }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h2>{{ appointment.payment.all.0.amount }} zł</h2>
+                        </div>
+                        <div class="col">
+                            <h2 class="text-right">
+                                {% if appointment.payment.all.0.status %}
+                                <i class="fas fa-check"></i> Paid
+                                {% else %}
+                                <i class="fas fa-times"></i> Unpaid
+                                {% endif %}
+                            </h2>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endfor %}
 <hr>
 <br>
 

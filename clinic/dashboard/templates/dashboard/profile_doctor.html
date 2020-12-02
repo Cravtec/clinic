@@ -1,0 +1,79 @@
+{% extends "layouts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="page-inner">
+    <h3 class="page-title">User Profile</h3>
+    <div class="content-section">
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <div class="row px-4">
+                    <div class="col-sm-12 col-md-6 col-xl-6">
+                        <h4 class="page-title">Doctor's Profile Info</h4>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ d_form.first_name|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ d_form.mid_name|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ d_form.last_name|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ d_form.gender|as_crispy_field }}
+                            </div>
+                        </div>
+                        {{ d_form.birth_date|as_crispy_field }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ d_form.phone_number|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ d_form.specialization|as_crispy_field }}
+
+                            </div>
+                        </div>
+                        {{ d_form.description|as_crispy_field }}
+
+                        {{ d_form.image|as_crispy_field }}
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-xl-6">
+                        <h4 class="page-title">Address Info</h4>
+                        {{ a_form.country | as_crispy_field }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ a_form.home_number | as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ a_form.street | as_crispy_field }}
+                            </div>
+                        </div>
+                        {{ a_form.address | as_crispy_field }}
+                        {{ a_form.town | as_crispy_field }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ a_form.state | as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ a_form.postal_code | as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn float-right btn-info" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center">
+    <div class="card mt-3 mb-3" style="max-width: 600px">
+        <div class="card-body">
+            <h3 class="card-title">Delete appointment?</h3>
+            <form method="post">
+                {% csrf_token %}
+                <p>
+                <h4>Are you sure you want to delete appointment?</h4>
+                <ul>
+                    <li>Patient: {{ object.profile }}</li>
+                    <li>Doctor:{{ object.doctor }}</li>
+                    <li>Date: {{ object.date }}</li>
+                    <li>Time: {{ object.start_time }}</li>
+                </ul>
+
+                <input type="submit" value="Yes" class="btn btn-danger">
+                <a href="{% url 'dashboard:appointments' %}">
+                    <button class="btn btn-outline-secondary" type="button">No</button>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
