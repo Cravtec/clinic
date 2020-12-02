@@ -15,18 +15,17 @@
     <link href="{% static 'clinic_main/img/favicon.png' %}" rel="icon">
     <link href="{% static 'clinic_main/img/apple-touch-icon.png" rel="apple-touch-icon' %}">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <script src="{% static 'fontawesome/js/all.js' %}"></script>
     <link rel="icon" href="{% static 'img/find-clinic.png' %}">
     <!-- Vendor CSS Files -->
     <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/icofont/icofont.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/boxicons/css/boxicons.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/venobox/venobox.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/animate.css/animate.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/remixicon/remixicon.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/owl.carousel/assets/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'clinic_main/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'clinic_main/vendor/owl.carousel/assets/owl.carousel.min.css' %}">
     <!-- Template Main CSS File -->
     <link href="{% static 'clinic_main/css/style.css' %}" rel="stylesheet">
     <!-- =======================================================
@@ -38,25 +37,15 @@
 </head>
 
 <body id="page-top">
-    {% include 'clinic_main/navbar.html' %}
-    <div style="height: 120px">
-    </div>
-    <main id="main">
-        {% block content %}{% endblock %}
-    </main>
-    {% include 'clinic_main/footer.html' %}
-    <!-- Vendor JS Files -->
-    <script src="{% static 'clinic_main/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/php-email-form/validate.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/venobox/venobox.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/counterup/counterup.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'clinic_main/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
-    <!-- Template Main JS File -->
-    <script src="{% static 'clinic_main/js/main.js' %}"></script>
+{% include 'clinic_main/navbar.html' %}
+<div style="height: 120px">
+</div>
+<main id="main">
+    {% block content %}{% endblock %}
+</main>
+{% include 'clinic_main/footer.html' %}
+<!-- Template Main JS File -->
+<script src="{% static 'clinic_main/js/main.js' %}"></script>
 </body>
 
 </html>
