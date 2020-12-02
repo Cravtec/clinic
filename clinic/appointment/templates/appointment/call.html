@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="page-inner">
+    <h1>All Appointments</h1>
+
+    <ul>
+        {% for appointment in object_list %}
+
+            <li>
+                {{ appointment.date }} ({{ appointment.start_time}}) who {{ appointment.profile }}, Dr: {{ appointment.doctor}}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+</div>
+{% endblock %}

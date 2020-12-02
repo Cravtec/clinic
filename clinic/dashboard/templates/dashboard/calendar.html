@@ -1,7 +1,152 @@
 {% extends "layouts/base.html" %}
-
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-<h1>Calendar</h1>
+<!-- Calendar -->
+<style>
+    #hours-display{
+        text-align: center;
+    }
+
+    #hours-display h1{
+        margin-top: 30px;
+        padding-bottom: 20px ;
+    }
+
+    #hours-display .check-time {
+        margin: 10px 0 20px 0;
+    }
+
+    #hours-display .check-time {
+        margin: 10px 0 20px 0;
+    }
+    #hours-display .available-time{
+        margin: 10px;
+    }
+
+
+    .second-col label{
+        padding: 10px 0;
+        margin-bottom: 0;
+        font-size: 14px !important;
+
+    }
+    .second-col select{
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .second-col .submit{
+        margin: 20px;
+        text-align: center;
+    }
+    .appointment_form{
+        text-align: center;
+    }
+    .btn-outline-primary{
+        color: #1660A2;
+        border-color: #1660A2;
+    }
+
+</style>
+<div class="page-inner">
+    <h1>Calendar</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md first-col">
+                <div class="container-calendar">
+                    <div class="button-container-calendar">
+                        <button id="previous">&#8249;</button>
+                        <button id="next">&#8250;</button>
+                        <h3 id="monthHeader"></h3>
+                        <p id="yearHeader"></p>
+                    </div>
+                    <table class="table-calendar" id="calendar">
+                        <thead id="thead-month"></thead>
+                        <tbody id="calendar-body"></tbody>
+                    </table>
+                    <div class="footer-container-calendar">
+                        <label for="month">Jump To: </label>
+                        <select id="month">
+                            <option value=0>Jan</option>
+                            <option value=1>Feb</option>
+                            <option value=2>Mar</option>
+                            <option value=3>Apr</option>
+                            <option value=4>May</option>
+                            <option value=5>Jun</option>
+                            <option value=6>Jul</option>
+                            <option value=7>Aug</option>
+                            <option value=8>Sep</option>
+                            <option value=9>Oct</option>
+                            <option value=10>Nov</option>
+                            <option value=11>Dec</option>
+                        </select>
+                        <select id="year"></select>
+                    </div>
+                </div>
+                <div id="hours-display">
+                    <input type="hidden" name="dateChosen" id="dateChosen" class="form-control form-control-lg" value="{% now 'Y-m-d' %}" disabled>
+                    <div id="currentHours"></div>
+                    <h1>Available appointments</h1>
+                    <div id="availableHours"></div>
+                </div>
+            </div>
+            <div class="col-md second-col">
+                <div>
+                    <form method="post">
+                        <label>Doctor Name</label>
+                        {% csrf_token %}
+                        {{ form.doctor }}
+                        <label>Patient Name</label>
+                        {{ form.profile }}
+                        <label for="appointmentDate">Date</label>
+                        <input type="text" class="form-control form-control-lg" id="appointmentDate" value="{% now 'j F Y' %}" disabled>
+                        {{ form.date }}
+                        <label for="appointmentTime">Time</label>
+                        <input type="text" class="form-control form-control-lg" id="appointmentTime" value="" disabled>
+                        {{ form.start_time }}
+                        <div class="appointment_form">
+                            <button type="submit" class="btn btn-outline-primary btn-lg submit">Book Appointment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function checkTime() {
+    var datechoosen = document.getElementById("dateChosen").value
+    var id_doctor = document.getElementById("id_doctor").value
+    //debugger;
+    $.ajax({
+        type: 'GET',
+        dataType: "json",
+        url: "{% url 'dashboard:check_hours' %}",
+        data: { "datechoosen": datechoosen, "id_doctor": id_doctor },
+        success: function(data) {
+            $("#availableHours").html('');
+
+            var timeAvaliable = "";
+            $.each(data, function(k, v) {
+                timeAvaliable += '<button class="btn btn-outline-primary btn-lg available-time" id="time' + k + '" value="' + v.time + '" onclick="getTime(this.id)">' + v.time + '</button>';
+            })
+            $('#availableHours').append(timeAvaliable);
+        }
+    });
+}
+
+function getTime(id) {
+    var btn = document.getElementById(id).value;
+    $('#id_start_time').val(btn)
+    $("#appointmentTime").val(btn);
+}
+
+function clearTime() {
+    $("#id_start_time").val("");
+    $("#appointmentTime").val("");
+    $("#availableHours").html('');
+}
+</script>
 {% endblock %}

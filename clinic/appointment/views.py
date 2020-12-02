@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -26,3 +27,22 @@ class AppointmentUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView)
 @login_required
 def visit_form(request):
     pass
+
+
+# =======
+# from clinic.appointment.models import Appointment
+#
+# from django.views.generic import ListView
+#
+# class CurrentView1(views.View):
+#     def get(self, request):
+#         return render(
+#             request,
+#             template_name='call.html',
+#             context={'appointments': Appointment.objects.all()}
+#         )
+#
+# class CurrentView(ListView):
+#     template_name = 'call.html'
+#     model = Appointment
+# >>>>>>> calendar

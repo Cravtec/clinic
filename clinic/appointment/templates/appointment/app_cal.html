@@ -1,0 +1,78 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+<!-- Calendar -->
+<style>
+    .second-col label{
+        padding: 10px 0;
+        margin-bottom: 0;
+        font-size: 14px !important;
+
+    }
+    .second-col select{
+        padding-top: 0;
+        margin-top: 0;
+    }
+</style>
+
+<div class="page-inner">
+    <h1>App Calendar</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md first-col">
+                <div class="container-calendar">
+                    <div class="button-container-calendar">
+                        <button id="previous">&#8249;</button>
+                        <button id="next">&#8250;</button>
+                        <h3 id="monthHeader"></h3>
+                        <p id="yearHeader"></p>
+                    </div>
+                    <table class="table-calendar" id="calendar">
+                        <thead id="thead-month"></thead>
+                        <tbody id="calendar-body"></tbody>
+                    </table>
+                    <div class="footer-container-calendar">
+                        <label for="month">Jump To: </label>
+                        <select id="month">
+                            <option value=0>Jan</option>
+                            <option value=1>Feb</option>
+                            <option value=2>Mar</option>
+                            <option value=3>Apr</option>
+                            <option value=4>May</option>
+                            <option value=5>Jun</option>
+                            <option value=6>Jul</option>
+                            <option value=7>Aug</option>
+                            <option value=8>Sep</option>
+                            <option value=9>Oct</option>
+                            <option value=10>Nov</option>
+                            <option value=11>Dec</option>
+                        </select>
+                        <select id="year"></select>
+                    </div>
+                </div>
+                <p id="date-picked"></p>
+                <div>
+                    <p id="appTime"></p>
+                </div>
+            </div>
+            <div class="col-md second-col">
+               <div class="form-group">
+										<label for="largeSelect">Doctor Name</label>
+										<select class="form-control form-control-lg" id="largeSelect">
+											<option>Sebastia Janas</option>
+											<option>Mateusz Mielniczuk</option>
+											<option>Mariusz Debowski</option>
+										</select>
+									</div>
+                <label for="patientName">Patient Name</label>
+				<input type="text" class="form-control form-control-lg" id="patientName" placeholder="Large Input" disabled>
+                <label for="appointmentDate">Date</label>
+				<input type="text" class="form-control form-control-lg" id="appointmentDate" value="" disabled>
+                <label for="appointmentTime">Date</label>
+				<input type="text" class="form-control form-control-lg" id="appointmentTime" value="" disabled>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

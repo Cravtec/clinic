@@ -1,21 +1,27 @@
+# from appointment.models import Appointment
+from dashboard.forms import CreateAppointmentForm
+from datetimerange import DateTimeRange
+from dateutil.relativedelta import relativedelta
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import Group
 from django.contrib.sites.shortcuts import get_current_site
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
-
-from django.views.generic import UpdateView
-from users import forms as users_forms
-from users import models as users_models
-from users import filters as user_filters
+# Create your views here.
+from django.views.generic import CreateView, UpdateView
 
 from appointment import filters as appoint_filters
+from appointment import models as app_model
 from appointment import models as appoint_models
-from .forms import ProfileForm, AddressForm, DoctorForm
 
-from django.contrib.auth.models import Group
+from users import filters as user_filters
+from users import forms as users_forms
+from users import models as users_models
+
+from .forms import ProfileForm, AddressForm, DoctorForm
 
 PATIENT = Group.objects.get(name='patient')
 DOCTOR = Group.objects.get(name='doctor')
@@ -204,3 +210,53 @@ def profile_doctor(request, *args, **kwargs):
         'a_form': a_form
     }
     return render(request, 'dashboard/profile_doctor.html', context)
+
+
+# @login_required
+# def app_cal(request):
+#     return render(request, 'appointment/app_cal.html', {})
+
+
+@login_required
+def check_hours(request, query=None):
+    print(request.GET["datechoosen"])
+    picked_date = request.GET["datechoosen"]
+    doctor_id = request.GET["id_doctor"]
+
+    all_appointments = Appointment.objects.filter(date=picked_date, doctor_id=doctor_id)
+
+    current_appointments = []
+    time_list = []
+    time_to_display = []
+
+    for appointment in all_appointments:
+        if appointment.start_time.hour < 10:
+            hours = '0' + str(appointment.start_time.hour)
+        else:
+            hours = appointment.start_time.hour
+
+        if appointment.start_time.minute == 0:
+            minutes = '00'
+        else:
+            minutes = appointment.start_time.minute
+        current_appointments.append(f'{hours}:{minutes}')
+
+    time_range = DateTimeRange("2015-01-01T09:00:00", "2015-01-01T17:00:00")
+    for value in time_range.range(relativedelta(minutes=30)):
+        time_list.append(str(value.time())[0:5])
+
+    for current_time in time_list:
+        if current_time not in current_appointments:
+            time_to_display.append(current_time)
+
+    result = {i: {"time": time_to_display[i]} for i in range(0, len(time_to_display))}
+    return JsonResponse(result)
+
+
+class CreateAppointmentView(CreateView):
+    template_name = "dashboard/calendar.html"
+    model = app_model.Appointment
+
+    form_class = CreateAppointmentForm
+
+    success_url = reverse_lazy('dashboard:calendar')

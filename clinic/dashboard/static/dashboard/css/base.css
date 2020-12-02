@@ -43,3 +43,14 @@ select[name$="_year"].selectdatewidget {
     margin-bottom: 0;
     padding: 10px 3px;
 }
+
+.btn-outline-primary{
+    color: #1660A2;
+    border-color: #1660A2;
+}
+
+.btn-outline-primary:hover{
+    color: #ffffff;
+    background: #1660A2;
+    border-color: #1660A2;
+}

@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
 from users import models as user_models
 
 
@@ -14,6 +15,11 @@ class Appointment(models.Model):
     def __str__(self):
         return f'{self.date}: {self.profile.first_name} {self.profile.last_name} | ' \
                f'Dr({self.doctor.first_name} {self.doctor.last_name})'
+
+    @property
+    def get_html_url(self):
+        url = reverse('event_edit', args=(self.id,))
+        return f'<p>{self.id}</p><a href="{url}">edit</a>'
 
 
 class Payment(models.Model):
@@ -44,3 +50,7 @@ class Prescription(models.Model):
 
     def __str__(self):
         return f'{self.name} - {self.date}'
+
+class Event(models.Model):
+    def current_app(self, doctor_id, current_date):
+        return self.filter()
