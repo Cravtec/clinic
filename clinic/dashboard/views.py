@@ -220,10 +220,11 @@ def profile_doctor(request, *args, **kwargs):
 @login_required
 def check_hours(request, query=None):
     print(request.GET["datechoosen"])
+    print(request.GET["id_doctor"])
     picked_date = request.GET["datechoosen"]
     doctor_id = request.GET["id_doctor"]
 
-    all_appointments = Appointment.objects.filter(date=picked_date, doctor_id=doctor_id)
+    all_appointments = appoint_models.Appointment.objects.filter(date=picked_date, doctor_id=doctor_id)
 
     current_appointments = []
     time_list = []
