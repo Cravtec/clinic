@@ -54,12 +54,20 @@
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </a>
+                                        <a href="{% url 'dashboard:create_visit' appointment.id %}">
+                                            <button type="button" data-toggle="tooltip" title="Fill visit form"
+                                                    class="btn btn-link btn-primary" data-original-title="Remove">
+                                                <i class="fas fa-address-card"></i>
+                                            </button>
+                                        </a>
+
                                         <a href="{% url 'dashboard:delete_confirm_appointment' appointment.id %}">
                                             <button type="button" data-toggle="tooltip" title="Delete appointment"
                                                     class="btn btn-link btn-danger" data-original-title="Remove">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </a>
+
                                     </div>
                                 </td>
                             </tr>

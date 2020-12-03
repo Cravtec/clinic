@@ -12,10 +12,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 # Create your views here.
 from django.views.generic import CreateView, UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
 
 from appointment import filters as appoint_filters
 from appointment import models as app_model
 from appointment import models as appoint_models
+from appointment import forms as appoint_forms
 
 from users import filters as user_filters
 from users import forms as users_forms
@@ -219,8 +221,6 @@ def profile_doctor(request, *args, **kwargs):
 
 @login_required
 def check_hours(request, query=None):
-    # print(request.GET["id_doctor"])
-    # print(request.GET["datechoosen"])
     picked_date = request.GET["datechoosen"]
     doctor_id = request.GET["id_doctor"]
 
@@ -254,10 +254,47 @@ def check_hours(request, query=None):
     return JsonResponse(result)
 
 
-class CreateAppointmentView(CreateView):
+class CreateAppointmentView(SuccessMessageMixin, CreateView):
     template_name = "dashboard/calendar.html"
     model = app_model.Appointment
-
     form_class = CreateAppointmentForm
-
+    success_message = 'You successfully booked an appointment!'
     success_url = reverse_lazy('dashboard:calendar')
+
+
+@login_required
+def create_visit(request, *args, **kwargs):
+    if not appoint_models.Payment.objects.filter(appointment_id=kwargs['pk']):
+        pay = appoint_models.Payment.objects.create(appointment_id=kwargs['pk'])
+        pay.save()
+    if not appoint_models.VisitDescription.objects.filter(appointment_id=kwargs['pk']):
+        visit = appoint_models.VisitDescription.objects.create(appointment_id=kwargs['pk'])
+        visit.save()
+    if not appoint_models.Prescription.objects.filter(appointment_id=kwargs['pk']):
+        pers = appoint_models.Prescription.objects.create(appointment_id=kwargs['pk'])
+        pers.save()
+    payment_instance = appoint_models.Payment.objects.get(appointment_id=kwargs['pk'])
+    visit_instance = appoint_models.VisitDescription.objects.get(appointment_id=kwargs['pk'])
+    prescription_instance = appoint_models.Prescription.objects.get(appointment_id=kwargs['pk'])
+
+    if request.method == 'POST':
+        payment_form = appoint_forms.PaymentForm(request.POST, instance=payment_instance)
+        visit_form = appoint_forms.VisitDescriptionForm(request.POST, instance=visit_instance)
+        presc_form = appoint_forms.PrescriptionForm(request.POST, instance=prescription_instance)
+        if visit_form.is_valid() and payment_form.is_valid() and presc_form.is_valid():
+            payment_form.save()
+            visit_form.save()
+            presc_form.save()
+            messages.success(request, f'Appointment data has been stored successfully!')
+            return redirect('dashboard:dashboard')
+    else:
+        payment_form = appoint_forms.PaymentForm(instance=payment_instance)
+        visit_form = appoint_forms.VisitDescriptionForm(instance=visit_instance)
+        presc_form = appoint_forms.PrescriptionForm(instance=prescription_instance)
+
+    context = {
+        'payment_form': payment_form,
+        'visit_form': visit_form,
+        'presc_form': presc_form,
+    }
+    return render(request, 'dashboard/create_visit.html', context)

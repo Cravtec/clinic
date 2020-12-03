@@ -35,18 +35,33 @@
 
     <div class="card bg-light mb-3">
 
-        <div class="card-header"><h3>Visit Description</h3></div>
+        <div class="row">
+            <div class="col-8">
+                <div class="card-header"><h3>Visit Description</h3></div>
+
+            </div>
+            <div class="col text-right">
+                <a href="{% url 'dashboard:create_visit' appointment.id %}">
+                    <button type="button" data-toggle="tooltip" title="Update appointment"
+                            class="btn btn-link btn-primary btn-lg"
+                            data-original-title="Edit Task">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+
         <div class="card-body">
             <h4>Symptoms</h4>
-            <p class="card-text">{{ appointment.visit.all.0.symptoms }}</p>
+            <p class="card-text">{{ appointment.visit.symptoms }}</p>
         </div>
         <div class="card-body">
             <h4>Diagnose</h4>
-            <p class="card-text">{{ appointment.visit.all.0.diagnose }}</p>
+            <p class="card-text">{{ appointment.visit.diagnose }}</p>
         </div>
         <div class="card-body">
             <h4>Treatment</h4>
-            <p class="card-text">{{ appointment.visit.all.0.treatment }}</p>
+            <p class="card-text">{{ appointment.visit.treatment }}</p>
         </div>
 
     </div>
@@ -62,7 +77,7 @@
                             <h3>Prescription</h3>
                         </div>
                         <div class="col text-right">
-                            <h4>{{ appointment.prescription.all.0.date }}</h4>
+                            <h4>{{ appointment.prescription.date }}</h4>
                         </div>
                     </div>
                 </div>
@@ -70,33 +85,33 @@
 
                 <div class="card-body">
 
-                    <h4>{{ appointment.prescription.all.0.name }}</h4>
+                    <h4>{{ appointment.prescription.name }}</h4>
 
-                    <p class="card-text">{{ appointment.prescription.all.0.description }}</p>
+                    <p class="card-text">{{ appointment.prescription.description }}</p>
                 </div>
             </div>
         </div>
 
         <div class="col">
-            <div class="card text-white {% if appointment.payment.all.0.status %}bg-success{% else %}bg-warning{% endif %} mb-2">
+            <div class="card text-white {% if appointment.payment.status %}bg-success{% else %}bg-warning{% endif %} mb-2">
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
                             <h3>Payment</h3>
                         </div>
                         <div class="col">
-                            <h5 class="text-right">{{ appointment.payment.all.0.date }}</h5>
+                            <h5 class="text-right">{{ appointment.payment.date }}</h5>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h2>{{ appointment.payment.all.0.amount }} zł</h2>
+                            <h2>{{ appointment.payment.amount }} zł</h2>
                         </div>
                         <div class="col">
                             <h2 class="text-right">
-                                {% if appointment.payment.all.0.status %}
+                                {% if appointment.payment.status %}
                                 <i class="fas fa-check"></i> Paid
                                 {% else %}
                                 <i class="fas fa-times"></i> Unpaid

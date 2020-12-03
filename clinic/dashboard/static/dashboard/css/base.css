@@ -54,3 +54,8 @@ select[name$="_year"].selectdatewidget {
     background: #1660A2;
     border-color: #1660A2;
 }
+
+.form-check [type="checkbox"]:not(:checked), .form-check [type="checkbox"]:checked {
+    position: absolute;
+    left: -0px;
+}

@@ -44,7 +44,7 @@
                 </a>
             </li>
 
-            {% url 'dashboard:appointment' as appointment_url %}
+            {% url 'dashboard:appointments' as appointment_url %}
             <li class="nav-item {% if request.get_full_path == appointment_url %}active{% endif %}">
                 <a href="{% url 'dashboard:appointments' %}">
                     <i class="fa fa-table"></i>
