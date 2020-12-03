@@ -84,13 +84,3 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 
-# class ProfileView(UpdateView):
-#     model = User
-#     fields = []
-#     template_name = 'users/profile.html'
-#
-#     def get_success_url(self):
-#         return reverse('index')
-#
-#     def get_object(self):
-#         return self.request.user
