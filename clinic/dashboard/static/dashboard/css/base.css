@@ -55,6 +55,11 @@ select[name$="_year"].selectdatewidget {
     border-color: #1660A2;
 }
 
+/*===================================================Dashboard Profile====================================================*/
+
+
+/*===============================================END Dashboard Profile====================================================*/
+
 .form-check [type="checkbox"]:not(:checked), .form-check [type="checkbox"]:checked {
     position: absolute;
     left: -0px;
