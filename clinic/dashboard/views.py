@@ -25,10 +25,6 @@ from users import models as users_models
 
 from .forms import ProfileForm, AddressForm, DoctorForm
 
-PATIENT = Group.objects.get(name='patient')
-DOCTOR = Group.objects.get(name='doctor')
-SECRETARY = Group.objects.get(name='administration')
-
 
 @login_required
 def medical_history(request):
@@ -89,7 +85,7 @@ def register_patient(request):
             user.save()
             users_models.Profile.objects.create(id=user.pk, user=user)
             users_models.Address.objects.create(id=user.pk, user=user)
-            user.groups.add(PATIENT)
+            user.groups.add(Group.objects.get(name='patient'))
             messages.success(request, f'Patient account has been registered! Now fill profile and address forms.')
             return redirect(f'dashboard:profile', user.pk)
     else:
@@ -122,7 +118,7 @@ def register_doctor(request):
             user = form.save(commit=False)
             user.save()
             messages.success(request, f'Doctor account has been registered! Now fill profile and address forms.')
-            user.groups.add(DOCTOR)
+            user.groups.add(Group.objects.get(name='doctor'))
             users_models.Address.objects.create(id=user.pk, user=user)
             users_models.Doctor.objects.create(id=user.pk, user=user)
             return redirect(f'dashboard:profile_doctor', user.pk)
@@ -152,7 +148,7 @@ def register_secretary(request):
             user.save()
             users_models.Address.objects.create(id=user.pk, user=user)
             users_models.Profile.objects.create(id=user.pk, user=user)
-            user.groups.add(SECRETARY)
+            user.groups.add(Group.objects.get(name='administration'))
             messages.success(request, f'Secretary account has been registered! Now fill profile and address fields.')
             return redirect(f'dashboard:profile', user.pk)
         else:
