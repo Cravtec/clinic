@@ -8,7 +8,7 @@ Django Clinic is the final project in Python and Django to accomplish Python fro
 
 ## Main aims of the project.
 
-* Dashboard for patients and employees to manage their accounts.
+* Dashboard for patients and employees to manage their accounts(CRUD).
 * Calendar for easy appointment booking
 * Managing appointments form patient and staff
 * System to create new patients and staff
@@ -19,6 +19,7 @@ Django Clinic is the final project in Python and Django to accomplish Python fro
 
 ```bash
 # create project folder and cd into it
+mkdir clinic && cd clinic
  
 # create virtual environment
 python3 -m venv venv
@@ -26,39 +27,38 @@ python3 -m venv venv
 # activate virtual environment
 source venv/bin/activate
 
-# install django
+# We use AbstractBaseUser and auth Group so you first have to create django project and auth database
 pip install django
-
 django-admin.py startproject clinic
 
+# go inside clinic folder
 cd clinic
 
-# change database name
-mv db.sqlite3 clinic_db.sqlite3
-
-cd ..
+# change database name and go to previous directory
+mv db.sqlite3 clinic_db.sqlite3 && cd ..
 
 # clone clinic repository
 git init
 git remote add origin https://github.com/Cravtec/clinic.git
 git fetch
-
-!!!!!!!Check if master, probably need to pull repo!!!!!
-
-# go inside clinic folder
-cd clinic/
+git switch -tf origin/master
 
 # install requirements
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
+# go inside clinic folder
+cd clinic
+
+# make database migration
 python manage.py migrate
 
+# load dummy data into database for better experience
 python manage.py loaddata fixtures.json
 
-# create your superuser
-
+# to create your superuser
 python  manage.py createsuperuser
 
+# and at last start django server
 python manage.py runserver
 ```
 
