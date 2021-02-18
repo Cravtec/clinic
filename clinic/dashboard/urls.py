@@ -24,6 +24,8 @@ urlpatterns = [
          appoint_views.AppointmentDeleteView.as_view(),
          name='delete_confirm_appointment'
          ),
+
+    path('create_visit/<int:pk>/', create_visit, name='create_visit'),
     path('calendar/', CreateAppointmentView.as_view(), name='calendar'),
     url('calendar/hours/', check_hours, name='check_hours'),
     path('medical_history/', medical_history, name='medical_history'),

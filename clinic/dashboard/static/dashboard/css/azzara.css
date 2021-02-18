@@ -1814,7 +1814,7 @@ label {
 
 .form-check [type="checkbox"]:not(:checked), .form-check [type="checkbox"]:checked {
   position: absolute;
-  left: -9999px; }
+  left: 0px; }
 .form-check [type="checkbox"]:not(:checked) + .form-check-sign, .form-check [type="checkbox"]:checked + .form-check-sign, .form-check [type="checkbox"] + .form-check-sign {
   position: relative;
   padding-left: 2em;

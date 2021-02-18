@@ -16,7 +16,6 @@ from .forms import RegistrationForm, UserCreationForm
 from .models import User, Profile, Address
 
 from django.contrib.auth.models import Group
-PATIENT = Group.objects.get(name='patient')
 
 UserModel = get_user_model()
 
@@ -48,7 +47,7 @@ def register(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            user.groups.add(PATIENT)
+            user.groups.add(Group.objects.get(name='patient'))
             Profile.objects.create(user=user)
             Address.objects.create(user=user)
             current_site = get_current_site(request)
@@ -84,13 +83,3 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 
-# class ProfileView(UpdateView):
-#     model = User
-#     fields = []
-#     template_name = 'users/profile.html'
-#
-#     def get_success_url(self):
-#         return reverse('index')
-#
-#     def get_object(self):
-#         return self.request.user

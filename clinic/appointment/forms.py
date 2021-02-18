@@ -12,17 +12,16 @@ class AppointmentForm(forms.ModelForm):
 class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
-        fields = '__all__'
+        fields = ['amount', 'status']
 
 
 class VisitDescriptionForm(forms.ModelForm):
     class Meta:
         model = VisitDescription
-        fields = '__all__'
+        fields = ['symptoms', 'diagnose', 'treatment']
 
 
 class PrescriptionForm(forms.ModelForm):
     class Meta:
         model = Prescription
-        fields = '__all__'
-
+        fields = ['name', 'description']
