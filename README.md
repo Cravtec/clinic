@@ -27,7 +27,7 @@ python3 -m venv venv
 # activate virtual environment
 source venv/bin/activate
 
-# We use AbstractBaseUser and auth Group so you first have to create django project and auth database
+# AbstractBaseUser and auth Group are use for this project, so you first have to create django project and auth database
 pip install django
 django-admin.py startproject clinic
 
