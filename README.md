@@ -27,12 +27,13 @@ python3 -m venv venv
 # activate virtual environment
 source venv/bin/activate
 
-# AbstractBaseUser and auth Group are use for this project, so you first have to create django project and auth database
+# AbstractBaseUser and auth Group are use for this project
+# You have to first create django project and auth database
 pip install django
 django-admin.py startproject clinic
 
-# go inside clinic folder
-cd clinic
+# go inside clinic folder and create auth database
+cd clinic && python manage.py migrate auth
 
 # change database name and go to previous directory
 mv db.sqlite3 clinic_db.sqlite3 && cd ..
@@ -43,11 +44,8 @@ git remote add origin https://github.com/Cravtec/clinic.git
 git fetch
 git switch -tf origin/master
 
-# install requirements
-pip install -r requirements.txt
-
-# go inside clinic folder
-cd clinic
+# install requirements and go inside clinic folder
+pip install -r requirements.txt && cd clinic
 
 # make database migration
 python manage.py migrate
