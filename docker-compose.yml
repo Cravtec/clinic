@@ -1,0 +1,12 @@
+version: '3'
+
+services: 
+  backend:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    # real time project management between local and docker image
+    # for running it use command "docer-compose run backend [some django command]"
+    volumes: 
+      - .:/app
+    ports:
+      - "8000:8000"

@@ -15,7 +15,12 @@ Django Clinic is the final project in Python and Django to accomplish Python fro
 * Easy browsing between patients and doctors
 
 
-# Build instruction:
+# Build instruction(Docker below):
+
+Required:
+* Python 3.8
+* pip
+* git
 
 ```bash
 # create project folder and cd into it
@@ -53,7 +58,7 @@ python manage.py migrate
 # load dummy data into database for better experience
 python manage.py loaddata fixtures.json
 
-# to create your superuser
+# to create your superuser run
 python  manage.py createsuperuser
 
 # and at last start django server
@@ -62,3 +67,29 @@ python manage.py runserver
 
 Server is running on localhost and port 8000:
 http://127.0.0.1:8000
+
+
+# Build instruction Docker:
+
+Required:
+* docker
+* docker-compose
+* git
+
+```bash
+# create project folder and cd into it
+mkdir clinic && cd clinic
+
+# clone github repository
+git clone https://github.com/Cravtec/clinic.git
+
+# build and run container
+docker-compose build
+
+# create your superuser
+..................
+
+# run container
+docker-compose up
+
+```

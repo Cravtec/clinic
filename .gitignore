@@ -1,5 +1,7 @@
 /venv/
+**/venv/
 /.idea/
+**/.idea/
 *.sqlite3
 __pycache__/
 

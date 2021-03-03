@@ -1,0 +1,39 @@
+# build django project on lightweight alpine linux and python 3.8 
+FROM python:3.8-alpine
+
+LABEL maintainer="Mateusz Mielniczuk" \
+        name="Django clinic" \
+        version="0.1"
+
+# send python output into terminal(to see django logs)
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR /app
+
+# update and install required packages
+RUN apk update \
+    && apk upgrade \
+    && python3 -m pip install --upgrade pip \
+    && apk add --no-cache \
+                    git \ 
+                    openssl-dev \
+                    libffi-dev \
+                    rust \
+                    cargo \
+                    python3-dev \
+                    jpeg-dev \
+                    zlib-dev \
+    && pip install cffi \
+    && pip install django~=3.0.8 \
+    && django-admin.py startproject clinic
+
+WORKDIR /app
+
+RUN python3 manage.py migrate auth \
+    && mv db.sqlite3 clinic_db.sqlite3
+
+COPY . /app/
+
+RUN pip install -r requirements.txt \
+    && python3 manage.py migrate \
+    && python3 manage.py loaddata fixtures.json
