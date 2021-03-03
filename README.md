@@ -24,8 +24,8 @@ Required:
 
 ```bash
 # create project folder and cd into it
-mkdir clinic && cd clinic
- 
+mkdir -p clinic/clinic/ && cd $_
+
 # create virtual environment
 python3 -m venv venv
 
@@ -34,11 +34,11 @@ source venv/bin/activate
 
 # AbstractBaseUser and auth Group are use for this project
 # You have to first create django project and auth database
-pip install django
-django-admin.py startproject clinic
+pip install django~=3.0.8
+django-admin.py startproject clinic .
 
-# go inside clinic folder and create auth database
-cd clinic && python manage.py migrate auth
+# create auth database
+python manage.py migrate auth
 
 # change database name and go to previous directory
 mv db.sqlite3 clinic_db.sqlite3 && cd ..
@@ -50,7 +50,7 @@ git fetch
 git switch -tf origin/master
 
 # install requirements and go inside clinic folder
-pip install -r requirements.txt && cd clinic
+cd clinic && pip install -r requirements.txt
 
 # make database migration
 python manage.py migrate
@@ -58,7 +58,7 @@ python manage.py migrate
 # load dummy data into database for better experience
 python manage.py loaddata fixtures.json
 
-# to create your superuser run
+# to create your superuser and play with the dashboard run
 python  manage.py createsuperuser
 
 # and at last start django server
@@ -86,10 +86,11 @@ git clone https://github.com/Cravtec/clinic.git
 # build and run container
 docker-compose build
 
-# create your superuser
-..................
+# create your superuser to play with the dashboard
+docker-compose run backend python manage.py createsuperuser
 
 # run container
 docker-compose up
-
 ```
+Server is running on localhost and port 8000:
+http://127.0.0.1:8000
